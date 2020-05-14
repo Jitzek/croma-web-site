@@ -1,0 +1,80 @@
+.main{
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    grid-template-areas: 
+    'header header header header header header'
+    'stream stream stream stream stream stream'
+    'left left left right right right'
+    'bleft bleft bleft bright bright bright';
+}
+@media screen and (max-width: 900px){
+    .main{
+        grid-template-areas: 
+        'header header header'
+        'stream stream stream'
+        'left left left'
+        'right right right'
+        'bleft bleft bleft'
+        'bright bright bright';
+    }
+    .info{
+        margin: 20px;
+    }
+}
+.main > div{
+    background-color: rgba(0, 0, 0, 0.445);
+    text-align: center;
+    color: white;
+}
+.header{
+    padding: 5%;
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.stream{
+    padding: 5%;
+    grid-area: stream;
+    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.left{
+    padding: 3vw;
+    grid-area: left;
+}
+.right{
+    padding: 3vw;
+    grid-area: right;
+}
+.bleft{
+    padding: 3vw;
+    grid-area: bleft;
+}
+.bright{
+    padding: 3vw;
+    grid-area: bright;
+}
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.info > div{
+    margin-right: 10px;
+}
+.value{
+    font-size: 1.5em;
+}
+span:not(.value){
+    font-size: 1em;
+}
+.info img{
+    max-width: 80%;
+    width: 80px;
+    height: auto;
+}

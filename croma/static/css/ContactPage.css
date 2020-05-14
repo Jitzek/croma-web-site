@@ -1,0 +1,80 @@
+h1{
+    color: #f7931e;
+    font-size: 4em !important;
+}
+h3{
+    color: #f7931e;
+    font-size: 2.5em !important;
+}
+#main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width: 900px){
+    #main{
+        flex-wrap: wrap;
+    }
+    #form{
+        text-align: center;
+        width: 20%;
+    }
+    input[type=text],[type=email]{
+        width: 300px !important;
+    }
+    #contactinfo{
+        text-align: center;
+    }
+    textarea{
+        width: 300px !important;
+    }
+    h1{
+        color: #f7931e;
+        font-size: 3em !important;
+    }
+    h3{
+        color: #f7931e;
+        font-size: 1.7em !important;
+    }
+    dt{
+        font-size: 0.8em !important;
+    }
+}
+#form{
+    margin-top: 5vw;
+    margin-left: 10vw;
+}
+
+input[type=text],[type=email]{
+    border: none;
+    background-color: #bfbfbf00;
+    border-bottom: 3px solid #bfbfbf;
+    color: white;
+    width: 50%;
+    margin-top: 10vh;
+    font-size: 1em;
+}
+input[type=submit]{
+    margin-top: 10vh;
+    border: 3px solid #f96d00;
+    border-radius: 100px;
+    color: white !important;
+    padding: 6px 30px 6px 30px;
+    background-color: #bfbfbf00;
+    font-size: 1em;
+}
+dt{
+    list-style-type: none;
+    color: white;
+    font-size: 1.2em;
+}
+textarea{
+    border: none;
+    background-color: #bfbfbf00;
+    border-bottom: 3px solid #bfbfbf;
+    color: white;
+    width: 50%;
+    margin-top: 10vh;
+    font-size: 1em;
+    margin-top: 20px !important;
+}
