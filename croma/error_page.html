@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% include 'layout/head.html' ignore missing %}
+    <link rel="stylesheet" href="/static/css/error_page.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="code">{{ error }}</h1>
+        <h3 id="msg">{{ msg }}</h2>
+        <br />
+        <p id="back-to-home">
+            <a href="{{ url_for('index') }}">Back to Home</a>
+        </p>
+    </div>
+</body>
+
+</html>

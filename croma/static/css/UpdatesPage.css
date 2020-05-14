@@ -1,0 +1,15 @@
+h1{
+    color: #f96d00;
+    font-size: 3vw !important;
+}
+p{
+    color: white;
+    font-size: 1vw;
+    margin-bottom: 3vw !important;
+}
+.container{
+    margin-top: 5vw;
+}
+span{
+    color: #bfbfbf;
+}
