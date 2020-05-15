@@ -36,7 +36,6 @@ function navbar_include() {
 
 function stream_include() {
     document.write(`
-        <link rel="stylesheet" href="./static/css/Live.css" />
         <link type="text/css" rel="stylesheet" href='https://www.cyberbotics.com/wwi/R2020a/wwi.css' />
         <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js'
             integrity='sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=' crossorigin='anonymous'></script>
@@ -44,6 +43,7 @@ function stream_include() {
         <script src='https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js'></script>
         <script src="https://www.cyberbotics.com/wwi/R2020a/webots.min.js"></script>
         <script src="./static/js/webots_setup.js"></script>
+        <link rel="stylesheet" href="./static/css/Live.css" />
 
         <div style="padding-left:10px">
             <p>
