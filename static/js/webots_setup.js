@@ -35,7 +35,6 @@ function connect() {
   var playerDiv = document.getElementById('playerDiv');
   playerDiv.style.height = "750px";
   view = new webots.View(playerDiv, mobileDevice);
-  console.log(view);
   view.broadcast = true;
   console.log('ws://' + ipInput.value + ':' + portInput.value);
   view.open('ws://' + ipInput.value + ':' + portInput.value);
@@ -48,13 +47,16 @@ function connect() {
   portInput.disabled = true;
 
   // FIXME, make the webotsProgress div remove itself reliably
-  document.getElementById('webotsProgress').style.display = "none";
+  if (document.getElementById('webotsProgress')) {
+    document.getElementById('webotsProgress').style.display = "none";
+  }
 
   connect_socket('ws://localhost:4444');
 }
 
 function onerror() {
   // OnError Logic
+  displayMSG('Connection failed <br> No WeBots Simulation running', '#c70000');
 }
 
 function disconnect() {

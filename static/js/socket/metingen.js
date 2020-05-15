@@ -30,8 +30,8 @@ function connect_socket(url) {
 }
 
 function disconnect_socket() {
-    socket.close();
-    socket =null;
+    if (socket) { socket.close(); }
+    socket = null;
     updateHTML('0');
 }
 
