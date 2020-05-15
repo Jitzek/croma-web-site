@@ -25,7 +25,6 @@ function navbar_include() {
                 <div class="navbar-nav nav-center">
                     <a class="nav-item nav-link active" id="active" href="/home.html">Home<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="/about.html">Over ons</a>
-                    <a class="nav-item nav-link" href="/metingen.html">Metingen</a>
                     <a class="nav-item nav-link" href="/live.html">Live</a>
                     <a class="nav-item nav-link" href="/updates.html">Updates</a>
                     <a class="nav-item nav-link" href="/contact.html">Contact</a>

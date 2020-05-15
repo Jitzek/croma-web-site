@@ -40,7 +40,6 @@ function connect() {
   console.log('ws://' + ipInput.value + ':' + portInput.value);
   view.open('ws://' + ipInput.value + ':' + portInput.value);
   view.onerror = onerror();
-  console.log(view);
   //view.stream.socket.onerror = my_onerror;
 
   connectButton.value = 'Disconnect';
@@ -50,6 +49,8 @@ function connect() {
 
   // FIXME, make the webotsProgress div remove itself reliably
   document.getElementById('webotsProgress').style.display = "none";
+
+  connect_socket('ws://localhost:4444');
 }
 
 function onerror() {
@@ -67,6 +68,7 @@ function disconnect() {
   connectButton.onclick = connect;
   ipInput.disabled = false;
   portInput.disabled = false;
+  disconnect_socket();
 }
 
 window.addEventListener('load', init, false);
