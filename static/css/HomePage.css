@@ -2,6 +2,12 @@
     text-align: center;
     color: white;
     margin-top: 15vh;
+    margin-bottom: 10vh;
+}
+@media screen and (max-width: 900px){
+    .container{
+        margin-top: 0vh;
+    }
 }
 h1{
     font-size: 5em !important;
