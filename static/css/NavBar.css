@@ -1,34 +1,38 @@
-body{
-    background: rgb(34,40,49);
-    background: linear-gradient(90deg, rgba(34,40,49,1) 17%, rgba(57,62,70,1) 77%);
+body {
+  background: rgb(34, 40, 49);
+  background: linear-gradient(
+    90deg,
+    rgba(34, 40, 49, 1) 17%,
+    rgba(57, 62, 70, 1) 77%
+  );
 }
-#logo{
-    width: 5vw;
-    height: auto;
+#logo {
+  width: 5vw;
+  height: auto;
 }
-.nav-center{
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+.nav-center {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
-.nav-center.active{
-    color: black !important;
+.nav-center.active {
+  color: black !important;
 }
-nav a:not(:first-child){
-    color: #bfbfbf !important;
-    margin: 0vw 4vw 0vw 4vw;
-    text-decoration: none;
+nav a {
+  color: #bfbfbf !important;
+  margin: 0vw 4vw 0vw 4vw;
+  text-decoration: none;
 }
-@media screen and (max-width: 1300px){
-    nav a:not(:first-child){
+@media screen and (max-width: 1300px) {
+  nav a:not(:first-child) {
     color: #bfbfbf !important;
     margin: 0vw 2vw 0vw 2vw;
     text-decoration: none;
+  }
 }
-}
-#active{
-    color: white !important;
+#active {
+  color: white !important;
 }
 .nav-item:after {
   background: none repeat scroll 0 0 transparent;
@@ -65,7 +69,7 @@ nav a:not(:first-child){
   vertical-align: middle;
   margin-right: 10px;
 }
-#logo{
+#logo {
   min-width: 10%;
   width: 80px;
   max-width: 100%;

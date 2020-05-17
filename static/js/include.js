@@ -10,7 +10,17 @@ function global_include() {
     `);
 }
 
-function navbar_include() {
+function navbar_include(page = "") {
+    /**
+     * [0] = Name of HTML file
+     * [1] = Display name for Navbar, doubles as Active identifier
+     */
+    const HOME = ['home', 'Home'];
+    const ABOUT = ['about', 'About'];
+    const LIVE = ['live', 'Live'];
+    const UPDATES = ['updates', 'Updates'];
+    const CONTACT = ['contact', 'Contact'];
+    var const_arr = [HOME, ABOUT, LIVE, UPDATES, CONTACT];
     document.write(`
         <link rel="stylesheet" href="./static/css/NavBar.css">
         <nav class="navbar navbar-expand-lg">
@@ -22,12 +32,12 @@ function navbar_include() {
                 <i class="hamburger-menu"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav nav-center">
-                    <a class="nav-item nav-link active" id="active" href="./home.html">Home<span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="./about.html">Over ons</a>
-                    <a class="nav-item nav-link" href="./live.html">Live</a>
-                    <a class="nav-item nav-link" href="./updates.html">Updates</a>
-                    <a class="nav-item nav-link" href="./contact.html">Contact</a>
+                <div class="navbar-nav nav-center">`);
+                    const_arr.forEach(element => {
+                        var id = page == element[1] ? "active" : "";
+                        document.write(`<a class="nav-item nav-link" id="${id}" href="./${element[0]}.html">${element[1]}</a>`);
+                    });
+                    document.write(`
                 </div>
             </div>
         </nav>
