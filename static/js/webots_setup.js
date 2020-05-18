@@ -39,14 +39,6 @@ function connect() {
   console.log('ws://' + ipInput.value + ':' + portInput.value);
   view.open('ws://' + ipInput.value + ':' + portInput.value);
 
-  // Sometimes works, sometimes doesn't, most of the time it's an inbetween
-  // Overriding function completely prevents stream from running even on succesful connection
-  // Not overriding function completely makes both messages pop up
-  view.onerror = function onerror() {
-    // OnError Logic
-    displayMSG('Connection failed <br> No WeBots Simulation running', '#c70000');
-  };
-
   connectButton.value = 'Disconnect';
   connectButton.onclick = disconnect;
   ipInput.disabled = true;
@@ -58,6 +50,11 @@ function connect() {
   }
   connect_socket('ws://localhost:4444');
 }
+
+function onerror() {
+  // OnError Logic
+  displayMSG('Connection failed <br> No WeBots Simulation running', '#c70000');
+};
 
 function disconnect() {
   playerDiv = document.getElementById('playerDiv');

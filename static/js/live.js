@@ -1,8 +1,8 @@
-var player = document.getElementById('playerDiv');
+var msgDiv = document.getElementById('msgDiv');
 
-function displayMSG( msg, color, code=null) {
-    player.innerHTML = '';
-    if (code) {player.innerHTML =+ `<h2>${code ? code : ''}</h2><br>`; }
-    player.innerHTML +=
+function displayMSG( msg, color='#ffffff', code=null) {
+    msgDiv.innerHTML = '';
+    if (code) {msgDiv.innerHTML =+ `<h2>${code ? code : ''}</h2><br>`; }
+    msgDiv.innerHTML +=
         `<p style="color: ${color}">${msg}</p>`;
 }

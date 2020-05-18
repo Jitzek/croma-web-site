@@ -63,6 +63,7 @@ function stream_include() {
                 <input id="ConnectButton" type="button" value="Connect" onclick="connect()" />
             </p>
         </div>
+        <div id="msgDiv"></div>
         <div id="playerDiv"></div>
     `);
 }
