@@ -26,7 +26,6 @@
         </div>
         -->
 
-        <!-- TODO: LinkedIn & GitHub -->
         <div class="container" id="contactinfo">
             <script>
                 // [0] - Name, 
@@ -71,11 +70,11 @@
                         if (pfp == null) pfp = contactinfo[3] != null ? contactinfo[3] + '.png' : './static/imgs/contact/default.png';
 
                         var li = contactinfo[2] != null ? `
-                            <a href="${contactinfo[2]}">
+                            <a href="${contactinfo[2]}" target="_blank">
                                 <div class="social-logo li-logo"></div>
                             </a>` : '';
                         var gh = contactinfo[3] != null ? `
-                            <a href="${contactinfo[3]}">
+                            <a href="${contactinfo[3]}" target="_blank">
                                 <div class="social-logo gh-logo"></div>
                             </a>` : '';
                         document.write(`
