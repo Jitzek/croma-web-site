@@ -57,6 +57,7 @@ function stream_include() {
 
         <div style="padding-left:10px">
             <p>
+                <!-- Change to Server Config -->
                 <input hidden id="IPInput" type="text" value="localhost" />
                 <input hidden id="PortInput" type="text" value="2222" />
                 <input id="ConnectButton" type="button" value="Connect" onclick="connect()" />
