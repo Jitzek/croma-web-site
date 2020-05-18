@@ -25,30 +25,85 @@
             </form>
         </div>
         -->
-        
+
         <!-- TODO: LinkedIn & GitHub -->
         <div class="container" id="contactinfo">
-            <h3>Werktuigbouwkunde</h3>
-            <dl>
-                <dt>Jelmer Prins - jelmer.prins@student.nhlstenden.com</dt>
-                <dt>Jelte Dotinga - jelte.dotinga@student.nhlstenden.com</dt>
-                <dt>Gerlof Bolding - </dt>
-                <dt>Joop Potma - </dt>
-            </dl>
-            <h3>Electrotechniek</h3>
-            <dl>
-                <dt>Fredrik Lautenbag - fredrik.lautenbag@student.nhlstenden.com</dt>
-                <dt>Gerjan Mollema - gerjan.mollema@studen.nhlstenden.com</dt>
-            </dl>
-            <h3>ICT</h3>
-            <dl>
-                <dt>Ido Hiemstra - ido.hiemstra@student.nhlstenden.com</dt>
-                <dt>Janek van Wolfswinkel - janek.van.wolfswinkel@student.nhlstenden.com</dt>
-                <dt>Joop de Graaf - </dt>
-                <dt>Chun Cheng(Micky) - micky.cheng@student.nhlstenden.com</dt>
-                <dt>Jitze Kerkstra - jitze.kerkstra@student.nhlstenden.com</dt>
-                <dt>Jan Vlasman - jan.vlasman99@gmail.com</dt>
-            </dl>
+            <script>
+                // [0] - Name, 
+                // [1] - Email,
+                // [2] - LinkedIn,
+                // [3] - Github
+                // [4] - Profile Picture
+                const contactinfo_arr = [
+                    ['Werktuigbouwkunde'],
+                    ['Jelmer Prins', 'jelmer.prins@student.nhlstenden.com', 'https://www.linkedin.com/in/jelmer-prins-846ba2199/', null, null],
+                    ['Jelte Dotinga', 'jelte.dotinga@student.nhlstenden.com', null, null, null],
+                    ['Gerlof Bolding', '', null, null, null],
+                    ['Joop Postma', 'joop.postma@student.nhlstenden.com', null, null, null],
+
+                    ['Elektrotechniek'],
+                    ['Fredrik-Otto Lautenbag', 'fredrik.lautenbag@student.nhlstenden.com', 'https://www.linkedin.com/in/fredrik-otto-lautenbag/', 'https://github.com/Fredrik1997', null],
+                    ['Gerjan Mollema', 'gerjan.mollema@studen.nhlstenden.com', 'https://nl.linkedin.com/in/gerjan-mollema-606ba3b4', 'https://github.com/gjmollema', null],
+
+                    ['ICT'],
+                    ['Ido Hiemstra', 'ido.hiemstra@student.nhlstenden.com', 'https://www.linkedin.com/in/ido-hiemstra-653a0b1a9/', 'https://github.com/Drochot', null],
+                    ['Janek van Wolfswinkel', 'janek.van.wolfswinkel@student.nhlstenden.com', 'https://www.linkedin.com/in/janek-van-wolfswinkel/', 'https://github.com/janekvw', null],
+                    ['Joop de Graaf', 'joop.de.graaf@student.nhlstenden.com', null, null, null],
+                    ['Chun Cheng (Micky)', 'micky.cheng@student.nhlstenden.com', 'https://www.linkedin.com/in/micky-cheng-8074741a1/', 'https://github.com/melonicedtea', null],
+                    ['Jitze Jan Kerkstra', 'jitze.kerkstra@student.nhlstenden.com', 'https://www.linkedin.com/in/jitze-jan-kerkstra/', 'https://github.com/Jitzek', null],
+                    ['Jan Vlasman', 'jan.vlasman99@gmail.com', 'https://www.linkedin.com/in/jan-vlasman-8834611a4/', 'https://github.com/AnnoyingDog99', null],
+                ];
+                contactinfo_arr.forEach(contactinfo => {
+                    // If arr.length == 1 defines a divider (Werktuigbouwkunde, Elektrotechniek or ICT)
+                    if (contactinfo.length == 1) {
+                        if (contactinfo_arr[0] != contactinfo) {
+                            document.write('</div><div style="margin-top: 2em"></div>');
+                        } 
+                        document.write(`
+                        <h3 class="card-head">${contactinfo[0]}</h3>
+                        <div class="row">`);
+                    } 
+                    else if (contactinfo[0] && contactinfo[1]) {
+                        // Use Defined Profile Picture ([4])
+                        var pfp = contactinfo[4];
+                        // If person does not have a defined Profile Picture ([4]) try the person's github else use default
+                        // Github gives easier access to user's pfp than linkedin
+                        if (pfp == null) pfp = contactinfo[3] != null ? contactinfo[3] + '.png' : './static/imgs/contact/default.png';
+
+                        var li = contactinfo[2] != null ? `
+                            <a href="${contactinfo[2]}">
+                                <div class="social-logo li-logo"></div>
+                            </a>` : '';
+                        var gh = contactinfo[3] != null ? `
+                            <a href="${contactinfo[3]}">
+                                <div class="social-logo gh-logo"></div>
+                            </a>` : '';
+                        document.write(`
+                        <div class="col-12 col-md-6 col-lg-3 col-card">
+                            <div class="contact-card">
+                                <center>
+                                    <div class="pfp-container">
+                                        <img class="pfp" src="${pfp}" />
+                                    </div>
+                                    <div class="name-container">
+                                        <p>${contactinfo[0]}</p>
+                                    </div>
+                                    
+                                    <div style="min-height: 40px"></div>
+                                    <div class="social-info">
+                                        <a href="mailto:${contactinfo[1]}">
+                                            <div class="social-logo em-logo"></div>
+                                        </a>
+                                        ${li}
+                                        ${gh}
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                        `)
+                    }
+                });
+            </script>
         </div>
     </div>
 </body>

@@ -1,83 +1,191 @@
-h1{
-    color: #f7931e;
-    font-size: 4em !important;
+h1 {
+  color: #f7931e;
+  font-size: 4em !important;
 }
-h3{
-    color: #f7931e;
-    font-size: 2.5em !important;
+h3 {
+  color: #f7931e;
+  font-size: 2.5em !important;
 }
-#main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.container{
-    margin-top: 5vw;
-}
-@media screen and (max-width: 900px){
-    #main{
-        flex-wrap: wrap;
-    }
-    #form{
-        text-align: center;
-        width: 20%;
-    }
-    input[type=text],[type=email]{
-        width: 300px !important;
-    }
-    #contactinfo{
-        text-align: center;
-    }
-    textarea{
-        width: 300px !important;
-    }
-    h1{
-        color: #f7931e;
-        font-size: 3em !important;
-    }
-    h3{
-        color: #f7931e;
-        font-size: 1.7em !important;
-    }
-    dt{
-        font-size: 0.8em !important;
-    }
-}
-#form{
-    margin-top: 5vw;
-    margin-left: 10vw;
+.container {
+  margin-top: 5vw;
 }
 
-input[type=text],[type=email]{
-    border: none;
-    background-color: #bfbfbf00;
-    border-bottom: 3px solid #bfbfbf;
-    color: white;
-    width: 50%;
-    margin-top: 10vh;
-    font-size: 1em;
+#form {
+  margin-top: 5vw;
+  margin-left: 10vw;
 }
-input[type=submit]{
-    margin-top: 10vh;
-    border: 3px solid #f96d00;
-    border-radius: 100px;
-    color: white !important;
-    padding: 6px 30px 6px 30px;
-    background-color: #bfbfbf00;
-    font-size: 1em;
+
+input[type="text"],
+[type="email"] {
+  border: none;
+  background-color: #bfbfbf00;
+  border-bottom: 3px solid #bfbfbf;
+  color: white;
+  width: 50%;
+  margin-top: 10vh;
+  font-size: 1em;
 }
-dt{
-    list-style-type: none;
-    color: white;
-    font-size: 1.2em;
+input[type="submit"] {
+  margin-top: 10vh;
+  border: 3px solid #f96d00;
+  border-radius: 100px;
+  color: white !important;
+  padding: 6px 30px 6px 30px;
+  background-color: #bfbfbf00;
+  font-size: 1em;
 }
-textarea{
-    border: none;
-    background-color: #bfbfbf00;
-    border-bottom: 3px solid #bfbfbf;
-    color: white;
-    width: 50%;
-    margin-top: 10vh;
-    font-size: 1em;
-    margin-top: 20px !important;
+dt {
+  list-style-type: none;
+  color: white;
+  font-size: 1.2em;
+  display: inline;
+}
+textarea {
+  border: none;
+  background-color: #bfbfbf00;
+  border-bottom: 3px solid #bfbfbf;
+  color: white;
+  width: 50%;
+  margin-top: 10vh;
+  font-size: 1em;
+  margin-top: 20px !important;
+}
+
+.card-head {
+  animation: slidein 4s forwards 0s;
+}
+
+.col-card {
+  animation: slidein 4s forwards 0s;
+}
+
+.contact-card {
+  color:  white;
+  background-color: rgba(0, 0, 0, 0.445);
+  padding: 2em;
+  margin: 2em;
+  min-height: 20em;
+  max-height: 20em;
+  min-width: 16em;
+  animation: shine 4s forwards 2s;
+}
+
+.pfp {
+  width: 60px;
+  height: auto;
+}
+
+.pfp-container {
+  min-height: 6em;
+}
+
+.name-container {
+  font-size: 1.2em;
+  min-height: 5em;
+}
+
+.social-info {
+}
+
+#social-icon {
+  color: whitesmoke;
+  opacity: 0.85;
+  font-size: 40px;
+}
+
+#social-icon:hover {
+  opacity: 1;
+}
+
+.social-logo {
+  display: inline;
+  background-color: white;
+  margin: 10px;
+  padding: 1.2em;
+  opacity: 0.9;
+}
+.social-logo:hover {
+  opacity: 1;
+}
+
+.em-logo {
+  -webkit-mask: url(../imgs/contact/envelopes.svg) no-repeat center;
+  mask: url(../imgs/contact/envelopes.svg) no-repeat center;
+  mask-size: contain;
+}
+
+.gh-logo {
+  -webkit-mask: url(../imgs/contact/github.svg) no-repeat center;
+  mask: url(../imgs/contact/github.svg) no-repeat center;
+}
+
+.li-logo {
+  -webkit-mask: url(../imgs/contact/linkedin.svg) no-repeat center;
+  mask: url(../imgs/contact/linkedin.svg) no-repeat center;
+}
+
+/**
+*   Media
+*/
+@media screen and (max-width: 900px) {
+  #main {
+    flex-wrap: wrap;
+  }
+  #form {
+    text-align: center;
+    width: 20%;
+  }
+  input[type="text"],
+  [type="email"] {
+    width: 300px !important;
+  }
+  #contactinfo {
+    text-align: center;
+  }
+  textarea {
+    width: 300px !important;
+  }
+  h1 {
+    color: #f7931e;
+    font-size: 3em !important;
+  }
+  h3 {
+    color: #f7931e;
+    font-size: 1.7em !important;
+  }
+  .col-card, .card-head {
+    animation: none;
+  }
+}
+
+/**
+*   Animations
+*/
+@keyframes shine {
+  0% {
+    box-shadow: 0 0 15px #f7921e00;
+  }
+  100% {
+    box-shadow: 0 0 15px #f7921e;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    margin-left: -200%;
+  }
+  20% {
+    margin-left: -200%;
+  }
+  35% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 0px;
+  }
 }
