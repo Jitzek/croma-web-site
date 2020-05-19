@@ -15,16 +15,28 @@
         navbar_include('Updates');
     </script>
     <div class="container">
-        <h1>Update 3.0.1</h1>
-        <span>Mei 05, 2020 @ 16:00</span>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus ut mollitia eius facilis totam suscipit,
-            reiciendis quod dolore. Architecto nemo corrupti placeat dolore nostrum ratione qui dignissimos ea!
-            Doloremque, porro.</p>
-        <h1>Update 3.0.0</h1>
-        <span>Mei 05, 2020 @ 16:00</span>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus ut mollitia eius facilis totam suscipit,
-            reiciendis quod dolore. Architecto nemo corrupti placeat dolore nostrum ratione qui dignissimos ea!
-            Doloremque, porro.</p>
+        <script>
+            // [0] - Title
+            // [1] - Date and Time (month dd, yyyy)
+            // [2] - Description
+            const update_arr = [
+                // 0
+                ['Update 0.0.1 - Init',
+                'Mei 05, 2020',
+                `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus ut mollitia eius facilis totam suscipit,
+                reiciendis quod dolore. Architecto nemo corrupti placeat dolore nostrum ratione qui dignissimos ea!
+                Doloremque, porro.`]
+                //
+                // 1
+            ];
+            update_arr.forEach(update => {
+                document.write(`
+                <h1>${update[0]}</h1>
+                <span>${update[1]}</span>
+                <p>${update[2]}</p>
+                `);
+            });
+        </script>
     </div>
 </body>
 

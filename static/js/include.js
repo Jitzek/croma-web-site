@@ -1,3 +1,8 @@
+const WEBOTS_IP = 'localhost';
+const WEBOTS_PORT = 2222;
+const SOCKET_IP = 'localhost';
+const SOCKET_PORT = 4444;
+
 function global_include() {
     document.write(`
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -5,13 +10,12 @@ function global_include() {
         <link rel="shortcut icon" href="./static/favicon.ico">
         <link rel="stylesheet" href="./static/css/bootstrap/bootstrap.min.css" />
         <link rel="stylesheet" href="./static/css/icons.css" />
-        <script src="./static/js/constants.js"></script>
         <script src="./static/js/jquery/jquery-3.5.1.min.js"></script>
         <script src="./static/js/bootstrap/bootstrap.min.js"></script>
         <script src="./static/js/socket/ping.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function (event) {
-                ping('localhost', 2222, function() {
+                ping('${WEBOTS_IP}', ${WEBOTS_PORT}, function() {
                     document.getElementsByClassName("live-tab")[0].innerHTML += '<span class="live-dot live-dot-inner"></span><span class="live-dot live-dot-outer"></span>';
                 });
             });
@@ -66,9 +70,8 @@ function stream_include() {
 
         <div style="padding-left:10px">
             <p>
-                <!-- Change to Server Config -->
-                <input hidden id="IPInput" type="text" value="localhost" />
-                <input hidden id="PortInput" type="text" value="2222" />
+                <input hidden id="IPInput" type="text" value="${WEBOTS_IP}" />
+                <input hidden id="PortInput" type="text" value="${WEBOTS_PORT}" />
                 <input id="ConnectButton" type="button" value="Connect" onclick="connect()" />
             </p>
         </div>
