@@ -92,6 +92,7 @@ textarea {
 .name-container {
   font-size: 1.2em;
   min-height: 5em;
+  max-height: 5em;
 }
 
 #social-icon {
@@ -107,7 +108,8 @@ textarea {
 .social-logo {
   display: inline;
   background-color: white;
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 1.2em;
   opacity: 0.9;
   transition: background-color 0.5s;

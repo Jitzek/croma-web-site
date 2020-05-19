@@ -7,9 +7,10 @@
     </script>
     <title>Contact</title>
     <link rel="stylesheet" href="./static/css/ContactPage.css" />
+    <script src="./static/js/decoder.js"></script>
 </head>
 
-<body>
+<body onload="decode_init()">
     <script>
         navbar_include('Contact');
     </script>
@@ -52,7 +53,9 @@
                     ['Jitze Jan Kerkstra', 'jitze.kerkstra@student.nhlstenden.com', 'https://www.linkedin.com/in/jitze-jan-kerkstra/', 'https://github.com/Jitzek', null],
                     ['Jan Vlasman', 'jan.vlasman99@gmail.com', 'https://www.linkedin.com/in/jan-vlasman-8834611a4/', 'https://github.com/AnnoyingDog99', null],
                 ];
+                var i = 0;
                 contactinfo_arr.forEach(contactinfo => {
+                    var delay = i++ * 100;
                     // If arr.length == 1 defines a divider (Werktuigbouwkunde, Elektrotechniek or ICT)
                     if (contactinfo.length == 1) {
                         if (contactinfo_arr[0] != contactinfo) {

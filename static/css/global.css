@@ -1,3 +1,17 @@
+@font-face {
+    font-family: GlacialIndifference;
+    src: url(../../static/fonts/GlacialIndifference-Regular.otf);
+}
+@font-face {
+    font-family: RobotoRegular;
+    src: url(../../static/fonts/Roboto-Regular.ttf);
+}
+
+body {
+    font-family: GlacialIndifference, RobotoRegular, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.05em;
+}
+
 .href-link {
     color: #f7921e;
 }
