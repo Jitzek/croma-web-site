@@ -119,6 +119,7 @@ textarea {
   -webkit-mask: url(../imgs/contact/envelopes.svg) no-repeat center;
   mask: url(../imgs/contact/envelopes.svg) no-repeat center;
   mask-size: contain;
+  -webkit-mask-size: contain;
 }
 
 .gh-logo {
