@@ -1,4 +1,4 @@
-const WEBOTS_IP = 'localhost';
+const WEBOTS_IP = '192.168.0.118';
 const WEBOTS_PORT = 2222;
 const SOCKET_IP = 'localhost';
 const SOCKET_PORT = 4444;
@@ -10,6 +10,7 @@ function global_include() {
         <link rel="shortcut icon" href="./static/favicon.ico">
         <link rel="stylesheet" href="./static/css/bootstrap/bootstrap.min.css" />
         <link rel="stylesheet" href="./static/css/icons.css" />
+        <link rel="stylesheet" href="./static/css/global.css" />
         <script src="./static/js/jquery/jquery-3.5.1.min.js"></script>
         <script src="./static/js/bootstrap/bootstrap.min.js"></script>
         <script src="./static/js/socket/ping.js"></script>
