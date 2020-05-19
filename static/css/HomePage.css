@@ -1,3 +1,7 @@
+@font-face{
+    font-family: moon;
+    src: url(/static/fonts/Moon\ Light.otf);
+}
 .container{
     text-align: center;
     color: white;
@@ -11,6 +15,7 @@
 }
 h1{
     font-size: 5em !important;
+    font-family: moon;
 }
 p{
     font-size: 1.2em;
@@ -23,4 +28,10 @@ p{
     border-radius: 20px;
     color: white !important;
     padding: 6px 30px 6px 30px;
+    
+    transition: background-color 0.5s, box-shadow 0.5s;
+}
+.container a:hover{
+    background-color: #f96d00;
+    box-shadow: 0px 0px 15px rgba(128, 128, 128, 0.76);
 }

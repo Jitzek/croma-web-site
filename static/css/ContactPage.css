@@ -110,11 +110,11 @@ textarea {
   margin: 10px;
   padding: 1.2em;
   opacity: 0.9;
+  transition: background-color 0.5s;
 }
 .social-logo:hover {
   opacity: 1;
 }
-
 .em-logo {
   -webkit-mask: url(../imgs/contact/envelopes.svg) no-repeat center;
   mask: url(../imgs/contact/envelopes.svg) no-repeat center;
