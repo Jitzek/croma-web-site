@@ -59,6 +59,10 @@ function onerror() {
   // OnError Logic
   if (disconnected) return;
   displayMSG('Connection failed <br> No WeBots Simulation running', '#c70000');
+
+  // The only reason the following line works because it will throw an exception and stop any code after this from running
+  // Thus preventing the popup from showing
+  document.querySelector('div[aria-describedby="webotsAlert"]').innerHTML = '';
 };
 
 function disconnect() {
