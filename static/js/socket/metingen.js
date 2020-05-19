@@ -1,7 +1,7 @@
 var socket = null;
-function connect_socket(url) {
+function connect_socket(conn) {
     // Create WebSocket connection.
-    socket = new WebSocket(url);
+    socket = new WebSocket(conn);
 
     socket.onerror = function (event) {
         //console.log(event);

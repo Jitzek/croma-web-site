@@ -133,7 +133,7 @@ textarea {
 }
 
 /**
-*   Media
+*   Media Rules
 */
 @media screen and (max-width: 900px) {
   #main {
@@ -164,7 +164,7 @@ textarea {
 }
 
 /**
-*   Animations
+*   Keyframes
 */
 @keyframes shine {
   0% {

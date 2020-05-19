@@ -4,6 +4,7 @@ var view = null;
 var ipInput = null;
 var portInput = null;
 var connectButton = null;
+var disconnected = true;
 var mobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 if (mobileDevice) {
   var head = document.getElementsByTagName('head')[0];
@@ -32,12 +33,15 @@ function init() {
 }
 
 function connect() {
+  disconnected = false;
+  displayMSG('');
   var playerDiv = document.getElementById('playerDiv');
   playerDiv.style.height = "750px";
   view = new webots.View(playerDiv, mobileDevice);
   view.broadcast = true;
-  console.log('ws://' + ipInput.value + ':' + portInput.value);
-  view.open('ws://' + ipInput.value + ':' + portInput.value);
+  console.log('ws://' + WEBOTS_IP + ':' + WEBOTS_PORT);
+  view.open('ws://' + WEBOTS_IP + ':' + WEBOTS_PORT);
+  view.onerror = onerror;
 
   connectButton.value = 'Disconnect';
   connectButton.onclick = disconnect;
@@ -48,15 +52,20 @@ function connect() {
   if (document.getElementById('webotsProgress')) {
     document.getElementById('webotsProgress').style.display = "none";
   }
-  connect_socket('ws://localhost:4444');
+  connect_socket(`ws://${SOCKET_IP}:${SOCKET_PORT}`);
 }
 
 function onerror() {
   // OnError Logic
+  if (disconnected) return;
   displayMSG('Connection failed <br> No WeBots Simulation running', '#c70000');
 };
 
 function disconnect() {
+  disconnected = true;
+  if (document.querySelector('div[aria-describedby="webotsAlert"]')) {
+    document.querySelector('div[aria-describedby="webotsAlert"]').innerHTML = '';
+  } displayMSG('');
   playerDiv = document.getElementById('playerDiv');
   playerDiv.style.height = "0px";
   view.close();

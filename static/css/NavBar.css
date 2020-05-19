@@ -75,3 +75,54 @@ nav a {
   max-width: 100%;
   height: auto;
 }
+
+.live-dot {
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+}
+.live-dot-inner {
+  background-color: rgb(255, 0, 0);
+  height: 15px;
+  width: 15px;
+  animation: pulse-inner 2s forwards 0s infinite;
+}
+.live-dot-outer {
+  background-color: #ff000060;
+  height: 21px;
+  width: 21px;
+  margin-left: 2px !important;
+  margin-top: -3px !important;
+  animation: pulse-outer 8s forwards 1s;
+}
+
+/**
+*   Keyframes
+*/
+@keyframes pulse-inner {
+  0% {
+    background-color: rgb(255, 0, 0);
+  }
+  50% {
+    background-color: #ff0000ab;
+  }
+  1000% {
+    background-color: rgb(255, 0, 0);
+  }
+}
+@keyframes pulse-outer {
+  0% {
+    background-color: #ff000060;
+    box-shadow: 0 0 20px #ff000000;
+  }
+  10% {
+    background-color: rgb(255, 0, 0);
+    box-shadow: 0 0 20px #ff0000;
+  }
+  30% {
+    background-color: #ff000060;
+    box-shadow: 0 0 20px #ff000000;
+  }
+}

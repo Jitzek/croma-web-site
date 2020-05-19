@@ -5,14 +5,23 @@ function global_include() {
         <link rel="shortcut icon" href="./static/favicon.ico">
         <link rel="stylesheet" href="./static/css/bootstrap/bootstrap.min.css" />
         <link rel="stylesheet" href="./static/css/icons.css" />
+        <script src="./static/js/constants.js"></script>
         <script src="./static/js/jquery/jquery-3.5.1.min.js"></script>
         <script src="./static/js/bootstrap/bootstrap.min.js"></script>
+        <script src="./static/js/socket/ping.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function (event) {
+                ping('localhost', 2222, function() {
+                    document.getElementsByClassName("live-tab")[0].innerHTML += '<span class="live-dot live-dot-inner"></span><span class="live-dot live-dot-outer"></span>';
+                });
+            });
+        </script>
     `);
 }
 
 function navbar_include(page = "") {
     /**
-     * [0] = Name of HTML file
+     * [0] = Name of HTML file, doubles as class name ([0]-tab)
      * [1] = Display name for Navbar, doubles as Active identifier
      */
     const HOME = ['home', 'Home'];
@@ -35,7 +44,7 @@ function navbar_include(page = "") {
                 <div class="navbar-nav nav-center">`);
                     const_arr.forEach(element => {
                         var id = page == element[1] ? "active" : "";
-                        document.write(`<a class="nav-item nav-link" id="${id}" href="./${element[0]}.html">${element[1]}</a>`);
+                        document.write(`<a class="nav-item nav-link ${element[0]}-tab" id="${id}" href="./${element[0]}.html">${element[1]}</a>`);
                     });
                     document.write(`
                 </div>
