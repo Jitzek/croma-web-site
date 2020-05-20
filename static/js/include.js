@@ -1,4 +1,4 @@
-const WEBOTS_IP = '192.168.0.118';
+const WEBOTS_IP = 'localhost';
 const WEBOTS_PORT = 2222;
 const SOCKET_IP = 'localhost';
 const SOCKET_PORT = 4444;
