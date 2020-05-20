@@ -16,8 +16,17 @@ function global_include() {
         <script src="./static/js/socket/ping.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function (event) {
-                ping('${WEBOTS_IP}', ${WEBOTS_PORT}, function() {
+                var init = document.getElementsByClassName("live-tab")[0].innerHTML;
+                ping('${WEBOTS_IP}', ${WEBOTS_PORT},
+                function() {
+                    document.getElementsByClassName("live-tab")[0].innerHTML += '<span style="font-size: 11px;">(offline)</span>';
+                },
+                function() {
+                    document.getElementsByClassName("live-tab")[0].innerHTML = init;
                     document.getElementsByClassName("live-tab")[0].innerHTML += '<span class="live-dot live-dot-inner"></span><span class="live-dot live-dot-outer"></span>';
+                }, function() {
+                    document.getElementsByClassName("live-tab")[0].innerHTML = init;
+                    document.getElementsByClassName("live-tab")[0].innerHTML += '<span style="font-size: 11px;">(offline)</span>';
                 });
             });
         </script>
