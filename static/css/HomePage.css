@@ -48,8 +48,13 @@ p {
   box-shadow: 0px 0px 15px rgba(128, 128, 128, 0.76);
 }
 
+#subtitle {
+  animation: reveal 4s forwards 0s;
+
+}
+
 #quote {
-    animation: quote-reveal 5s forwards 0s;
+    animation: reveal 5s forwards 0s;
 }
 
 /**
@@ -85,7 +90,7 @@ p {
   }
 }
 
-@keyframes quote-reveal {
+@keyframes reveal {
     0% {
         opacity: 0;
     }
