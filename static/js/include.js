@@ -14,6 +14,7 @@ function global_include() {
         <script src="./static/js/jquery/jquery-3.5.1.min.js"></script>
         <script src="./static/js/bootstrap/bootstrap.min.js"></script>
         <script src="./static/js/socket/ping.js"></script>
+        <script src="./static/js/decoder.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function (event) {
                 var init = document.getElementsByClassName("live-tab")[0].innerHTML;
@@ -56,11 +57,11 @@ function navbar_include(page = "") {
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav nav-center">`);
-                    const_arr.forEach(element => {
-                        var id = page == element[1] ? "active" : "";
-                        document.write(`<a class="nav-item nav-link ${element[0]}-tab" id="${id}" href="./${element[0]}.html">${element[1]}</a>`);
-                    });
-                    document.write(`
+    const_arr.forEach(element => {
+        var id = page == element[1] ? "active" : "";
+        document.write(`<a class="nav-item nav-link ${element[0]}-tab" id="${id}" href="./${element[0]}.html">${element[1]}</a>`);
+    });
+    document.write(`
                 </div>
             </div>
         </nav>
@@ -82,7 +83,24 @@ function stream_include() {
             <p>
                 <input hidden id="IPInput" type="text" value="${WEBOTS_IP}" />
                 <input hidden id="PortInput" type="text" value="${WEBOTS_PORT}" />
-                <input id="ConnectButton" type="button" value="Connect" onclick="connect()" />
+                <script>
+                    document.addEventListener("DOMContentLoaded", function (event) {
+                        var init = document.getElementById("ConnectToStream").innerHTML;
+                        ping('${WEBOTS_IP}', ${WEBOTS_PORT},
+                        function() {
+                            document.getElementById("ConnectToStream").innerHTML = '<p class="decode" limit="2" speed="5" delay="0">Establishing Connection...</p><img src="" onerror="decode_init()">';
+                            
+                        },
+                        function() {
+                            document.getElementById("ConnectToStream").innerHTML = init;
+                        }, function() {
+                            document.getElementById("ConnectToStream").innerHTML = '<p>Stream Offline, Try again later</p?';
+                        });
+                    });
+                </script>
+                <div id="ConnectToStream">
+                    <input id="ConnectButton" type="button" value="Connect" onclick="connect()" />
+                </div>
             </p>
         </div>
         <div id="msgDiv"></div>

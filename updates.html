@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./static/css/UpdatesPage.css">
 </head>
 
-<body>
+<body onload="decode_init()">
     <script>
         navbar_include('Updates');
     </script>
@@ -108,7 +108,7 @@
             update_arr.forEach(update => {
                 document.write(`
                 <h1>${update[0]}</h1>
-                <span>${update[1]}</span>
+                <span class="decode" limit="5" speed="10" delay="0">${update[1]}</span>
                 <p>${update[2]}</p>
                 <br><br><br>
                 `);

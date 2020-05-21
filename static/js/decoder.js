@@ -23,7 +23,7 @@ async function decode_init() {
  * @param {speed in milliseconds before new character attempt (lower is faster)} speed 
  * @param {delay in milliseconds before starting decode} delay 
  */
-async function decode(classn, limit=25, speed=50, delay=0) {
+async function decode(classn, limit=null, speed=50, delay=0) {
     var result = classn.innerHTML;
     var length = classn.innerHTML.length;
     classn.innerHTML = '';
@@ -36,11 +36,13 @@ async function decode(classn, limit=25, speed=50, delay=0) {
         var char = String.fromCharCode(Math.floor(Math.random() * UNICODE_LIMIT + 1));
 
         // Limit has been reached
-        if (limit_count > limit) {
-            classn.innerHTML += result[count];
-            count++;
-            limit_count = 0;
-            continue;
+        if (limit && limit != 'inf') {
+            if (limit_count > limit) {
+                classn.innerHTML += result[count];
+                count++;
+                limit_count = 0;
+                continue;
+            }
         }
 
         classn.innerHTML += char;
@@ -48,7 +50,7 @@ async function decode(classn, limit=25, speed=50, delay=0) {
         await sleep(speed);
 
         // Wrong char
-        if (result[count] != char) { 
+        if (result[count] != char || limit == 'inf') { 
             // Remove wrong char
             classn.innerHTML = classn.innerHTML.substring(0, count);
             limit_count++;

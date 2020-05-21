@@ -38,7 +38,7 @@
                     ['Mechanical Engineering'],
                     ['Jelmer Prins', 'jelmer.prins@student.nhlstenden.com', 'https://www.linkedin.com/in/jelmer-prins-846ba2199/', null, null],
                     ['Jelte Dotinga', 'jelte.dotinga@student.nhlstenden.com', null, null, null],
-                    ['Gerlof Bolding', '', null, null, null],
+                    ['Gerlof Bolding', null, null, null, null],
                     ['Joop Postma', 'joop.postma@student.nhlstenden.com', null, null, null],
 
                     ['Electrical Engineering'],
@@ -60,18 +60,23 @@
                     if (contactinfo.length == 1) {
                         if (contactinfo_arr[0] != contactinfo) {
                             document.write('</div><div style="margin-top: 6em"></div>');
-                        } 
+                        }
                         document.write(`
                         <h3 class="card-head">${contactinfo[0]}</h3>
                         <div class="row">`);
-                    } 
-                    else if (contactinfo[0] && contactinfo[1]) {
+                    }
+                    else if (contactinfo[0]) {
                         // Use Defined Profile Picture ([4])
                         var pfp = contactinfo[4];
                         // If person does not have a defined Profile Picture ([4]) try the person's github else use default
                         // Github gives easier access to user's pfp than linkedin
                         if (pfp == null) pfp = contactinfo[3] != null ? contactinfo[3] + '.png' : './static/imgs/contact/default.png';
 
+                        var em = contactinfo[1] != null ? `
+                            <a href="mailto:${contactinfo[1]}">
+                                <div class="social-logo em-logo"></div>
+                            </a>
+                        ` : '';
                         var li = contactinfo[2] != null ? `
                             <a href="${contactinfo[2]}" target="_blank">
                                 <div class="social-logo li-logo"></div>
@@ -93,9 +98,7 @@
                                     
                                     <div style="min-height: 40px"></div>
                                     <div class="social-info">
-                                        <a href="mailto:${contactinfo[1]}">
-                                            <div class="social-logo em-logo"></div>
-                                        </a>
+                                        ${em}
                                         ${li}
                                         ${gh}
                                     </div>

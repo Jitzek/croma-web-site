@@ -43,8 +43,10 @@ function connect() {
   view.open('ws://' + WEBOTS_IP + ':' + WEBOTS_PORT);
   view.onerror = onerror;
 
-  connectButton.value = 'Disconnect';
-  connectButton.onclick = disconnect;
+  document.getElementById('ConnectButton').value = 'Disconnect';
+  document.getElementById('ConnectButton').onclick = disconnect;
+  //connectButton.value = 'Disconnect';
+  //connectButton.onclick = disconnect;
   ipInput.disabled = true;
   portInput.disabled = true;
 
@@ -76,8 +78,10 @@ function disconnect() {
   view = null;
   var playerDiv = document.getElementById('playerDiv');
   playerDiv.innerHTML = null;
-  connectButton.value = 'Connect';
-  connectButton.onclick = connect;
+  document.getElementById('ConnectButton').value = 'Connect';
+  document.getElementById('ConnectButton').onclick = connect;
+  //connectButton.value = 'Connect';
+  //connectButton.onclick = connect;
   ipInput.disabled = false;
   portInput.disabled = false;
   disconnect_socket();
