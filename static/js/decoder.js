@@ -19,7 +19,7 @@ async function decode_init() {
 /**
  * 
  * @param {class object} classn 
- * @param {amount of allowed randomized tries} limit 
+ * @param {amount of allowed randomized tries, 'inf' means no limit} limit 
  * @param {speed in milliseconds before new character attempt (lower is faster)} speed 
  * @param {delay in milliseconds before starting decode} delay 
  */
