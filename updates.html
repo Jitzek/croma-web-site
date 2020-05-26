@@ -84,7 +84,7 @@
                     `To get custom data from WeBots to the website we'd have to use a socket, after some experimenting we found at least one succesful way to get it to work.<br>
                     This design would require the server to run a seperate Socket Listener (server) and WeBots stream (client) and have WeBots periodically send data over to the Socket Listener which would then broadcast it to all it's connected clients (visitors of website and WeBots simulation).<br>
                     It'd be best to have WeBots send this data directly to it's clients but until we get that to work we can use this implementation.<br><br>
-                    <img src="./static/imgs/updates/socket_v2.jpg" class="img-fluid" alt="Socket Design"/>`],
+                    <img src="./static/imgs/updates/Socket/socket_v2.jpg" class="img-fluid" alt="Socket Design"/>`],
                 //
                 //
                 ['Audio? I thought we were doing Vision',
@@ -107,11 +107,17 @@
                     <span style="color: white">white</span>/<span style="color: yellow">yellow</span> \xa0\xa0\xa0\xa0\xa0 <span style="color: yellow; text-shadow: 0 0 10px white;">lukewarm</span><br>
                     <span style="color: yellow">yellow</span>/<span style="color: orange">orange</span> \xa0\xa0\xa0<span style="color: orange; text-shadow: 0 0 10px yellow;">warm</span><br>
                     <span style="color: orange">orange</span>/<span style="color: red">red</span> \xa0\xa0\xa0\xa0\xa0\xa0\xa0 <span style="color: red; text-shadow: 0 0 10px orange;">hot</span><br><br>
-                    <img src="./static/imgs/updates/color_temp_recognition_loop.gif" class="img-fluid" alt="Color recognition Gif"/>`],
+                    <img src="./static/imgs/updates/Color Recognition/color_temp_recognition_loop.gif" class="img-fluid" alt="Color recognition Gif"/>`],
                 ['A Rocky Road',
                     'May 25, 2020',
                     `The Robot can now detect rocks on the rocky landscape of the moon, The finish line is only a stone's throw away now.<br><br>
-                    <img src="./static/imgs/updates/mineral_stone_setup.png" class="img-fluid" alt="Mineral Recognition Setup Image"/>`]
+                    <img src="./static/imgs/updates/Mineral Stone/mineral_stone_setup.png" class="img-fluid" alt="Mineral Recognition Setup Image"/>`],
+                ['Scan for discount',
+                    'May 26, 2020',
+                    `For this part of the qualification the robot required to read QR codes.<br>
+                    Each code will return a string (♣"Klaveren", ♥"Harten", ♠"Schoppen" or ♦"Ruiten").<br>
+                    This result will have to be used in a subsequent test requiring the robot to recognize the symbol (♣, ♥, ♠ or ♦) depending on the given string.<br><br>
+                    <img src="./static/imgs/updates/QR/qrcodegif.gif"`]
             ];
             update_arr.reverse();
             document.write('<!-- JavaScript Generated -->')
