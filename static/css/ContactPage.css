@@ -61,28 +61,42 @@ textarea {
 }
 
 .col-card {
+  margin-top: 2em;
+  margin-right: 2em;
   animation: fadein 1s forwards 0s;
 }
 
 .contact-card {
-  color:  white;
-  background-color: rgba(0, 0, 0, 0.445);
-  padding: 2em;
-  margin: 2em;
+  color: white;
+  padding: 0;
   min-height: 20em;
   max-height: 20em;
-  min-width: 16em;
+  min-width: 14em;
+  width: 18em !important;
   /*animation: shine 4s forwards 2s;*/
-  transition: box-shadow 0.25s, transform 0.25s;
+  transition: box-shadow 0.45s, transform 0.45s, color 0.45s;
 }
 .contact-card:hover {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.75);
+  /*box-shadow: 0 0 10px rgba(255, 255, 255, 0.75);*/
   transform: translateY(-4px);
+}
+
+.contact-card-overlay {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  padding: 2em;
+}
+
+.contact-card:hover .pfp {
+  width: 75px;
 }
 
 .pfp {
   width: 60px;
   height: auto;
+  transition: width 0.45s;
 }
 
 .pfp-container {
@@ -112,10 +126,11 @@ textarea {
   margin-right: 10px;
   padding: 1.2em;
   opacity: 0.9;
-  transition: background-color 0.5s;
+  transition: background-color 0.5s, padding 0.2s;
 }
 .social-logo:hover {
   opacity: 1;
+  padding: 1.5em;
 }
 .em-logo {
   -webkit-mask: url(../imgs/contact/envelopes.svg) no-repeat center;
