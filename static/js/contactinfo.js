@@ -19,7 +19,7 @@ const CONTACTINFO = [
     email: "jelmer.prins@student.nhlstenden.com",
     linkedin: null,
     github: null,
-    picture: "../static/imgs/contact/profilepictures/Jelte_Dotinga.jpg",
+    picture: "../../static/imgs/contact/profilepictures/Jelte_Dotinga.jpg",
     glow: "0 0 10px rgba(255, 255, 255, 0.75)",
     foreground: "#16191E",
     background: null,
