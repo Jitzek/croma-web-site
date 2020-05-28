@@ -42,7 +42,7 @@
                 }
             ];
             intro_arr.forEach(intro => {
-                document.write(`<hr><div class="introduction">`);
+                document.write(`<div class="introduction">`);
                 var info = getInfoByName(intro.name);
                 var em = info.email != null ? `
                     <a href="mailto:${info.email}">
@@ -72,7 +72,7 @@
                     </center>
                     <br><br>
                 `);
-                document.write(`</div>`);
+                document.write(`</div><hr>`);
             });
         </script>
     </div>
