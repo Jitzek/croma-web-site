@@ -139,7 +139,7 @@ const CONTACTINFO = [
     linkedin: "https://www.linkedin.com/in/jitze-jan-kerkstra/",
     github: "https://github.com/Jitzek",
     picture: null,
-    glow: "0 0 10px rgba(255, 255, 255, 0.75)",
+    glow: "0 0 10px rgba(60, 50, 80, 0.4)",
     foreground: "#16191E",
     background:
       "url(./static/imgs/contact/backgrounds/simplistic-mountain-1.jpg)",
