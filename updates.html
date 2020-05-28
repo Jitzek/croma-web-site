@@ -21,114 +21,210 @@
             // [1] - Date and Time (month dd, yyyy)
             // [2] - Description
             // HTML elements can be used
-            const update_arr = [
-                //
-                ['Hello <del>World</del> Team',
-                    'April 20, 2020',
-                    `The project has begun, everyone has introduced themselves and the first steps have been discussed.<br>
-                Let's do this.`],
-                //
-                //
-                ['What are we working with here?',
-                    'April 23, 2020',
-                    `Every discipline (Mechanical Engineering, Electrical Engineering and ICT) installed the program <a class="href-link" href="https://cyberbotics.com/" target="_blank">WeBots</a>, 
-                followed their tutorials and did some general research into it's capabilities.`],
-                //
-                //
-                ['Program Requirements',
-                    'April 24, 2020',
-                    `Let's make a list of all the requirements that have to be met to get through the qualification.<br>
-                We decided to base the requirements on the <a class="href-link" href="https://en.wikipedia.org/wiki/MoSCoW_method" target="_blank">MoSCoW</a> method.<br>
-                The document can downloaded <a class="href-link" href="./downloads/Programma van Eisen.docx" target="_black">here</a>.`],
-                //
-                // TODO: Link to Wireframes
-                // Some images of the wireframes would be nice too
-                ['Website Design',
-                    'April 30, 2020',
-                    `The ICT discipline decided get working on the website as soon as possible, one student made some wireframes to kick-start the process.`],
-                //
-                // TODO: Link to Robot Design
-                // Smaller images with onclick handler
-                ['Robot Design',
-                    'May 04, 2020',
-                    `Mechanical Engineering got to work on the design of the robot by drawing sketches, these sketches had to be realistic and fit the tasks the Robot would have to execute for the qualification.<br><br>
-                    <img src="./static/imgs/updates/Robot-Sketches/RBotSketch-1.jpg" class="img-fluid" alt="Robot Sketch 1"/><br>
-                    <img src="./static/imgs/updates/Robot-Sketches/RBotSketch-2.jpg" class="img-fluid" alt="Robot Sketch 2"/><br>
-                    <img src="./static/imgs/updates/Robot-Sketches/RBotSketch-3.jpeg" class="img-fluid" alt="Robot Sketch 3"/><br>
-                    <img src="./static/imgs/updates/Robot-Sketches/RBotSketch-4.jpg" class="img-fluid" alt="Robot Sketch 4"/><br>
-                    <img src="./static/imgs/updates/Robot-Sketches/RBotSketch-5.jpg" class="img-fluid" alt="Robot Sketch 5"/><br>
-                    <img src="./static/imgs/updates/Robot-Sketches/RBotSketch-6.jpg" class="img-fluid" alt="Robot Sketch 6"/><br>`],
-                //
-                //
-                ['So how are we going to run this website?',
-                    'May 07, 2020',
-                    `Two ICT students decided to discuss on how to host the website you are on now.
-                <ul>
-                    <li>Web Application? We'd need a stand-alone server anyways to host WeBots</li>
-                    <li>Static Website? Any socket connections (e.g. stream) would only require client-side JavaScript</li>
-                </ul>
-                <p>
-                    We decided to keep it as a webapplication for now (just incase we'd need a database or mail-server).<br>
-                    This webapplication would run on <a class="href-link" href="https://www.python.org/" target="_blank">Python</a> (<a class="href-link" href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank">Flask</a>), have <a class="href-link" href="https://www.mongodb.com/" target="_blank">mongoDB</a> as back-end database (since we wanted to try something new) and would be hosted using <a class="href-link" href="https://httpd.apache.org/" target="_blank">Apache2</a> (with the <a class="href-link" href="https://wsgi.readthedocs.io/en/latest/what.html" target="_blank">WSGI</a> module to make it work with Python).
-                </p>`],
-                //
-                //
-                ['We are Live',
-                    'May 09, 2020',
-                    `We got the streaming on the website to work, which was easier than expected.<br>
-                    Though we are missing a way to get custom data from WeBots to the website (which was a requirement) so we might have to make our own socket for that to work.`],
-                //
-                //
-                ['So here\'s the plan',
-                    'May 10, 2020',
-                    `To get custom data from WeBots to the website we'd have to use a socket, after some experimenting we found at least one succesful way to get it to work.<br>
-                    This design would require the server to run a seperate Socket Listener (server) and WeBots stream (client) and have WeBots periodically send data over to the Socket Listener which would then broadcast it to all it's connected clients (visitors of website and WeBots simulation).<br>
-                    It'd be best to have WeBots send this data directly to it's clients but until we get that to work we can use this implementation.<br><br>
-                    <img src="./static/imgs/updates/Socket/socket_v2.jpg" class="img-fluid" alt="Socket Design"/>`],
-                //
-                //
-                ['Audio? I thought we were doing Vision',
-                    'May 11, 2020',
-                    `Yes apparently the Vision part of the project also requires Audio analysis, this we have to figure out on our own (with the help libraries and tutorials of course).<br>
-                    The goal of the Audio analysis part is to detect music, it's bpm and ultimately to make the robot dance to it.`],
-                //
-                // TODO: Link to Robot model(s)
-                // Some images of the wheels would be nice too
-                ['<del>Re</del>inventing the wheel',
-                    'May 12, 2020',
-                    `The students of Mechanical Engineering modelled some wheels using <a class="href-link" href="https://www.solidworks.com/" target="_blank">SolidWorks</a> for the robot to use.`],
-                //
-                //
-                ['<span style="color: cyan;">C</span><span style="color: white;">O</span><span style="color: yellow;">L</span><span style="color: orange;">O</span><span style="color: red;">R</span> Recognition',
-                    'May 19, 2020',
-                    `The robot had to distinguish temperature of water using it's color, that's how that works right?<br>
-                    A student shared his demo regarding this subject;<br>
-                    <span style="color: cyan">cyan</span>/<span style="color: white">white</span> \xa0\xa0\xa0\xa0\xa0\xa0\xa0 <span style="color: white; text-shadow: 0 0 10px cyan;">cold</span><br>
-                    <span style="color: white">white</span>/<span style="color: yellow">yellow</span> \xa0\xa0\xa0\xa0\xa0 <span style="color: yellow; text-shadow: 0 0 10px white;">lukewarm</span><br>
-                    <span style="color: yellow">yellow</span>/<span style="color: orange">orange</span> \xa0\xa0\xa0<span style="color: orange; text-shadow: 0 0 10px yellow;">warm</span><br>
-                    <span style="color: orange">orange</span>/<span style="color: red">red</span> \xa0\xa0\xa0\xa0\xa0\xa0\xa0 <span style="color: red; text-shadow: 0 0 10px orange;">hot</span><br><br>
-                    <img src="./static/imgs/updates/Color Recognition/color_temp_recognition_loop.gif" class="img-fluid" alt="Color recognition Gif"/>`],
-                ['A Rocky Road',
-                    'May 25, 2020',
-                    `The Robot can now detect rocks on the rocky landscape of the moon, The finish line is only a stone's throw away now.<br><br>
-                    <img src="./static/imgs/updates/Mineral Stone/mineral_stone_setup.png" class="img-fluid" alt="Mineral Recognition Setup Image"/>`],
-                ['Scan for discount',
-                    'May 26, 2020',
-                    `For this part of the qualification the robot required to read QR codes.<br>
-                    Each code will return a string ("Klaveren", "Harten", "Schoppen" or "Ruiten").<br>
-                    This result will have to be used in a subsequent test requiring the robot to recognize the symbol depending on the given string.<br><br>
-                    <img src="./static/imgs/updates/QR/qrcodegif.gif"`]
+            const updates = [
+                {
+                    title: 'Hello <del>World</del> Team',
+                    date: 'April 20, 2020',
+                    content: `The project has begun, everyone has introduced themselves and the first steps have been discussed.<br>
+                            Let's do this.`,
+                    images: null
+                },
+                {
+                    title: 'What are we working with here?',
+                    date: 'April 23, 2020',
+                    content: `Every discipline (Mechanical Engineering, Electrical Engineering and ICT) installed the program <a class="href-link" href="https://cyberbotics.com/" target="_blank">WeBots</a>, 
+                            followed their tutorials and did some general research into it's capabilities.`,
+                    images: null
+                },
+                {
+                    title: 'Program Requirements',
+                    date: 'April 24, 2020',
+                    content: `Let's make a list of all the requirements that have to be met to get through the qualification.<br>
+                            We decided to base the requirements on the <a class="href-link" href="https://en.wikipedia.org/wiki/MoSCoW_method" target="_blank">MoSCoW</a> method.<br>
+                            The document can downloaded <a class="href-link" href="./downloads/Programma van Eisen.docx" target="_black">here</a>.`,
+                    images: null
+                },
+                {
+                    // TODO: Link to Wireframes
+                    // Some images of the wireframes would be nice too
+                    title: 'Website Design',
+                    date: 'April 30, 2020',
+                    content: `The ICT discipline decided get working on the website as soon as possible, one student made some wireframes to kick-start the process.`,
+                    images: null
+                },
+                {
+                    // TODO: Link to Robot Design
+                    title: 'Robot Design',
+                    date: 'May 04, 2020',
+                    content: `Mechanical Engineering got to work on the design of the robot by drawing sketches, 
+                            these sketches had to be realistic and fit the tasks the Robot would have to execute for the qualification.<br><br>`,
+                    images: [
+                        {
+                            url: './static/imgs/updates/Robot-Sketches/RBotSketch-1.jpg',
+                            alt: '[Image] Robot Sketch 1'
+                        },
+                        {
+                            url: './static/imgs/updates/Robot-Sketches/RBotSketch-2.jpg',
+                            alt: '[Image] Robot Sketch 2'
+                        },
+                        {
+                            url: './static/imgs/updates/Robot-Sketches/RBotSketch-3.jpg',
+                            alt: '[Image] Robot Sketch 3'
+                        },
+                        {
+                            url: './static/imgs/updates/Robot-Sketches/RBotSketch-4.jpg',
+                            alt: '[Image] Robot Sketch 4'
+                        },
+                        {
+                            url: './static/imgs/updates/Robot-Sketches/RBotSketch-5.jpg',
+                            alt: '[Image] Robot Sketch 5'
+                        },
+                        {
+                            url: './static/imgs/updates/Robot-Sketches/RBotSketch-6.jpg',
+                            alt: '[Image] Robot Sketch 16'
+                        },
+                    ]
+                },
+                {
+                    title: 'So how are we going to run this website?',
+                    date: 'May 07, 2020',
+                    content: `Two ICT students decided to discuss on how to host the website you are on now.
+                        <ul>
+                            <li>Web Application? We'd need a stand-alone server anyways to host WeBots</li>
+                            <li>Static Website? Any socket connections (e.g. stream) would only require client-side JavaScript</li>
+                        </ul>
+                        <p>
+                            We decided to keep it as a webapplication for now (just incase we'd need a database or mail-server).<br>
+                            This webapplication would run on <a class="href-link" href="https://www.python.org/" target="_blank">Python</a> (<a class="href-link" href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank">Flask</a>), have <a class="href-link" href="https://www.mongodb.com/" target="_blank">mongoDB</a> as back-end database (since we wanted to try something new) and would be hosted using <a class="href-link" href="https://httpd.apache.org/" target="_blank">Apache2</a> (with the <a class="href-link" href="https://wsgi.readthedocs.io/en/latest/what.html" target="_blank">WSGI</a> module to make it work with Python).
+                        </p>`,
+                    images: null
+                },
+                {
+                    title: 'We are Live',
+                    date: 'May 09, 2020',
+                    content: `We got the streaming on the website to work, which was easier than expected.<br>
+                            Though we are missing a way to get custom data from WeBots to the website (which was a requirement) so we might have to make our own socket for that to work.`,
+                    images: null
+                },
+                {
+                    title: 'So here\'s the plan',
+                    date: 'May 10, 2020',
+                    content: `To get custom data from WeBots to the website we'd have to use a socket, after some experimenting we found at least one succesful way to get it to work.<br>
+                            This design would require the server to run a seperate Socket Listener (server) and WeBots stream (client) and have WeBots periodically send data over to the Socket Listener which would then broadcast it to all it's connected clients (visitors of website and WeBots simulation).<br>
+                            It'd be best to have WeBots send this data directly to it's clients but until we get that to work we can use this implementation.<br><br>`,
+                    images: [
+                        {
+                            url: './static/imgs/updates/Socket/socket_v2.jpg',
+                            alt: '[Image] Socket Design'
+                        }
+                    ]
+                },
+                {
+                    title: 'Audio? I thought we were doing Vision',
+                    date: 'May 11, 2020',
+                    content: `Yes apparently the Vision part of the project also requires Audio analysis, this we have to figure out on our own (with the help libraries and tutorials of course).<br>
+                            The goal of the Audio analysis part is to detect music, it's bpm and ultimately to make the robot dance to it.`,
+                    images: null
+                },
+                {
+                    // TODO: Link to Robot model(s)
+                    // Some images of the wheels would be nice too
+                    title: '<del>Re</del>inventing the wheel',
+                    date: 'May 12, 2020',
+                    content: `The students of Mechanical Engineering modelled some wheels using <a class="href-link" href="https://www.solidworks.com/" target="_blank">SolidWorks</a> for the robot to use.`,
+                    images: null
+                },
+                {
+                    title: '<span style="color: cyan;">C</span><span style="color: white;">O</span><span style="color: yellow;">L</span><span style="color: orange;">O</span><span style="color: red;">R</span> Recognition',
+                    date: 'May 19, 2020',
+                    content: `The robot had to distinguish temperature of water using it's color, that's how that works right?<br>
+                            A student shared his demo regarding this subject;<br>
+                            <span style="color: cyan">cyan</span>/<span style="color: white">white</span> \xa0\xa0\xa0\xa0\xa0\xa0\xa0 <span style="color: white; text-shadow: 0 0 10px cyan;">cold</span><br>
+                            <span style="color: white">white</span>/<span style="color: yellow">yellow</span> \xa0\xa0\xa0\xa0\xa0 <span style="color: yellow; text-shadow: 0 0 10px white;">lukewarm</span><br>
+                            <span style="color: yellow">yellow</span>/<span style="color: orange">orange</span> \xa0\xa0\xa0<span style="color: orange; text-shadow: 0 0 10px yellow;">warm</span><br>
+                            <span style="color: orange">orange</span>/<span style="color: red">red</span> \xa0\xa0\xa0\xa0\xa0\xa0\xa0 <span style="color: red; text-shadow: 0 0 10px orange;">hot</span><br><br>`,
+                    images: [
+                        {
+                            url: './static/imgs/updates/Color Recognition/color_temp_recognition_loop.gif',
+                            alt: '[Gif] Color recognition Demo'
+                        }
+                    ]
+                },
+                {
+                    title: 'A Rocky Road',
+                    date: 'May 25, 2020',
+                    content: `The Robot can now detect rocks on the rocky landscape of the moon, The finish line is only a stone's throw away now.<br><br>`,
+                    images: [
+                        {
+                            url: './static/imgs/updates/Mineral Stone/mineral_stone_setup.png',
+                            alt: '[Image] Mineral Stone Recognition Demo Setup'
+                        }
+                    ]
+                },
+                {
+                    title: 'Scan for discount',
+                    date: 'May 26, 2020',
+                    content: `For this part of the qualification the robot required to read QR codes.<br>
+                            Each code will return a string ("Klaveren", "Harten", "Schoppen" or "Ruiten").<br>
+                                This result will have to be used in a subsequent test requiring the robot to recognize the symbol depending on the given string.<br><br>
+                            <img src=""`,
+                    images: [
+                        {
+                            url: './static/imgs/updates/QR/qrcodegif.gif',
+                            alt: '[Gif] QR Code Scanning Demo'
+                        }
+                    ]
+                },
             ];
-            update_arr.reverse();
+            let id = 0;
+            updates.reverse();
             document.write('<!-- JavaScript Generated -->')
-            update_arr.forEach(update => {
+            updates.forEach(update => {
+                // TITLE and DATE
                 document.write(`
-                <h1>${update[0]}</h1>
-                <span class="decode" limit="5" speed="10" delay="0">${update[1]}</span>
-                <p>${update[2]}</p>
-                <br><br><br>
+                    <h1>${update.title}</h1>
+                    <span class="decode" limit="5" speed="10" delay="0">${update.date}</span>
                 `);
+
+                document.write(`
+                    <p>${update.content}</p>
+                `);
+
+
+                // MEDIA
+                // (More than one image)
+                if (update.images && update.images.length > 1) {
+                    document.write(`
+                        <div class="media-container">
+                            <div class="row">
+                    `);
+                    update.images.forEach(image => {
+                        document.write(`
+                            <div class="column">
+                                <input type="checkbox" id="${id}">
+                                <label for="${id}">
+                                    <img src="${image.url}" class="img-fluid media"
+                                        alt="${image.alt}" />
+                                </label>
+                            </div>
+                        `)
+                        id++;
+                    });
+                    document.write(`</div></div>`);
+                }
+                // MEDIA
+                // (Only one image)
+                else if (update.images && update.images.length == 1) {
+                    document.write(`
+                        <img src="${update.images[0].url}" class="img-fluid"
+                            alt="${update.images[0].alt}" />
+                    `);
+                }
+
+                // END
+                document.write('<hr><div style="margin-bottom: 6em;"></div>"');
             });
+
         </script>
     </div>
 </body>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./static/css/ContactPage.css" />
     <script src="./static/js/decoder.js"></script>
     <script src="./static/js/contact.js"></script>
+    <script src="./static/js/contactinfo.js"></script>
 </head>
 
 <body onload="decode_init()">
@@ -30,179 +31,18 @@
 
         <div class="container" id="contactinfo">
             <script>
-                const contactinfo = [
-                    { type: 'header', content: 'Mechanical Engineering' },
-                    {
-                        type: "card",
-                        name: "Jelmer Prins",
-                        email: "jelmer.prins@student.nhlstenden.com",
-                        linkedin: "https://www.linkedin.com/in/jelmer-prins-846ba2199/",
-                        github: null,
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: null,
-                        hover: null,
-                        href: null
-                    },
-                    {
-                        type: "card",
-                        name: "Jelte Dotinga",
-                        email: "jelmer.prins@student.nhlstenden.com",
-                        linkedin: null,
-                        github: null,
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: null,
-                        hover: null,
-                        href: null
-                    },
-                    {
-                        type: "card",
-                        name: "Gerlof Bolding",
-                        email: null,
-                        linkedin: null,
-                        github: null,
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: null,
-                        hover: null,
-                        href: null
-                    },
-                    {
-                        type: "card",
-                        name: "Joop Postma",
-                        email: "joop.postma@student.nhlstenden.com",
-                        linkedin: null,
-                        github: null,
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: null,
-                        hover: null,
-                        href: null
-                    },
-                    { type: 'header', content: 'Electrical Engineering' },
-                    {
-                        type: "card",
-                        name: "Fredrik-Otto Lautenbag",
-                        email: "fredrik.lautenbag@student.nhlstenden.com",
-                        linkedin: "https://www.linkedin.com/in/fredrik-otto-lautenbag/",
-                        github: "https://github.com/Fredrik1997",
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: null,
-                        hover: null,
-                        href: null
-                    },
-                    {
-                        type: "card",
-                        name: "Gerjan Mollema",
-                        email: "gerjan.mollema@studen.nhlstenden.com",
-                        linkedin: "https://nl.linkedin.com/in/gerjan-mollema-606ba3b4",
-                        github: "https://github.com/gjmollema",
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: null,
-                        hover: null,
-                        href: null
-                    },
-                    { type: 'header', content: 'ICT' },
-                    {
-                        type: "card",
-                        name: "Ido Hiemstra",
-                        email: "ido.hiemstra@student.nhlstenden.com",
-                        linkedin: "https://www.linkedin.com/in/ido-hiemstra-653a0b1a9/",
-                        github: "https://github.com/Drochot",
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: null,
-                        hover: null,
-                        href: null
-                    },
-                    {
-                        type: "card",
-                        name: "Janek van Wolfswinkel",
-                        email: "janek.van.wolfswinkel@student.nhlstenden.com",
-                        linkedin: "https://www.linkedin.com/in/janek-van-wolfswinkel/",
-                        github: "https://github.com/janekvw",
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: null,
-                        hover: null,
-                        href: null
-                    },
-                    {
-                        type: "card",
-                        name: "Joop de Graaf",
-                        email: "joop.de.graaf@student.nhlstenden.com",
-                        linkedin: null,
-                        github: null,
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: null,
-                        hover: null,
-                        href: null
-                    },
-                    {
-                        type: "card",
-                        name: "Chun Cheng (Micky)",
-                        email: "micky.cheng@student.nhlstenden.com",
-                        linkedin: "https://www.linkedin.com/in/micky-cheng-8074741a1/",
-                        github: "https://github.com/melonicedtea",
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: null,
-                        hover: null,
-                        href: null
-                    },
-                    {
-                        type: "card",
-                        name: "Jitze Jan Kerkstra",
-                        email: "jitze.kerkstra@student.nhlstenden.com",
-                        linkedin: "https://www.linkedin.com/in/jitze-jan-kerkstra/",
-                        github: "https://github.com/Jitzek",
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: 'url(./static/imgs/contact/backgrounds/simplistic-mountain-1.jpg)',
-                        hover: 'rgba(0, 0, 0, 0.445)',
-                        href: "https://jitzek.github.io/"
-                    },
-                    {
-                        type: "card",
-                        name: "Jan Vlasman",
-                        email: "jan.vlasman99@gmail.com",
-                        linkedin: "https://www.linkedin.com/in/jan-vlasman-8834611a4/",
-                        github: "https://github.com/AnnoyingDog99",
-                        picture: null,
-                        glow: '0 0 10px rgba(255, 255, 255, 0.75)',
-                        foreground: '#16191E',
-                        background: null,
-                        hover: null,
-                        href: null
-                    },
-                ];
-                var i = 0;
-                contactinfo.forEach(info => {
+                document.write('<!-- JavaScript Generated -->')
+                CONTACTINFO.forEach(info => {
                     // If arr.length == 1 defines a divider (Werktuigbouwkunde, Elektrotechniek or ICT)
-                    if (info.type === 'header') {
-                        if (contactinfo[0] != info) {
+                    if (info.type === 'study') {
+                        if (CONTACTINFO[0] != info) {
                             document.write('</div><div style="margin-top: 12em"></div>');
                         }
                         document.write(`
                         <h3 class="card-head">${info.content}</h3><hr>
                         <div class="row">`);
                     }
-                    else if (info.type === 'card') {
+                    else if (info.type === 'student') {
                         // Use Defined Profile Picture
                         var pfp = info.picture;
                         // If person does not have a defined Profile Picture try the person's github else use default

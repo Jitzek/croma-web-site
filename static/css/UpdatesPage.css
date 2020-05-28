@@ -1,15 +1,64 @@
-h1{
-    color: #f96d00;
-    font-size: 3em !important;
+h1 {
+  color: #f96d00;
+  font-size: 3em !important;
 }
-p{
-    color: white;
-    font-size: 1.05em;
-    /*margin-bottom: 3vw !important;*/
+p {
+  color: white;
+  font-size: 1.05em;
+  /*margin-bottom: 3vw !important;*/
 }
-.container{
-    margin-top: 5vw;
+.container {
+  margin-top: 5vw;
 }
-span{
-    color: #bfbfbf;
+span {
+  color: #bfbfbf;
+}
+
+.media {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+.row::after {
+  clear: both;
+  display: table;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.media-container {
+  display: flex;
+}
+
+.media-container .media {
+  position: relative;
+  transition: transform 0.25s ease;
+  cursor: zoom-in;
+  transform: scale(0.7);
+}
+
+input[type="checkbox"]:checked ~ label > .media {
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  transform: scale(1) translate(-50%, -50%);
+  margin: 0 auto;
+  cursor: zoom-out;
+}
+
+/*
+   * Responsiveness
+  */
+@media only screen and (max-width: 800px) {
+  .column {
+    width: 50%;
+  }
 }

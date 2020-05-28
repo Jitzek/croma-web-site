@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <script src="./static/js/include.js"></script>
     <script>
@@ -6,15 +7,73 @@
     </script>
     <title>About</title>
     <link rel="stylesheet" href="./static/css/AboutPage.css">
+    <script src="./static/js/contactinfo.js"></script>
 </head>
+
 <body onload="decode_init()">
     <script>
         navbar_include('About');
     </script>
     <div class="container">
+        <hr>
         <h1 class="decode" limit="5" speed="10" delay="0">Project</h1>
-        <p>The NSA has set up a number of scientific experiments that they want to be carried out by the different teams of 2nd year students of the Mechanical Engineering, Electrical Engineering and HBO-ICT program.</p>
+        <p>The NSA has set up a number of scientific experiments that they want to be carried out by the different teams
+            of 2nd year students of the Mechanical Engineering, Electrical Engineering and HBO-ICT program.</p>
+        <br><hr>
         <h1 class="decode" limit="5" speed="10" delay="0">Team</h1>
-        <p>Our team exists of students from various engineering majors working together on a robot. Our work depends on eachother and enriches the final product.</p>
+        <p>Our team exists of students from various engineering majors working together on a robot. Our work depends on
+            eachother and enriches the final product.</p>
+        <br><br>
+        <script>
+            const intro_arr = [
+                {
+                    name: "Jitze Jan Kerkstra",
+                    intro: `
+                        Hello! My name is Jitze Jan Kerkstra.<br>
+                        I am a 2nd year ICT student at NHL Stenden Hogeschool.<br>
+                        <br>
+                        From idea and design to deployment, I always put in my 100% in every step of the process, I'm driven to make each project my best and want it to be something to be proud of.<br>
+                        I've always had a fascination for security, reliability and friendly design and I try to reflect these traits in my own work.<br>
+                        When it comes to programming I have a lot of valuable experience in different languages and frameworks and I'm determined to learn more.<br>
+                        <br>
+                        As one of the main developers working on this site I have taken the opportunity to integrate a good amount of JavaScript into this website.<br>
+                        I'm trying to use this opportunity to learn more about automation and styling using JavaScript.
+                    `
+                }
+            ];
+            intro_arr.forEach(intro => {
+                document.write(`<hr><div class="introduction">`);
+                var info = getInfoByName(intro.name);
+                var em = info.email != null ? `
+                    <a href="mailto:${info.email}">
+                        <div class="social-logo em-logo"></div>
+                    </a>` : '';
+                var li = info.linkedin != null ? `
+                    <a href="${info.linkedin}" target="_blank">
+                        <div class="social-logo li-logo"></div>
+                    </a>` : '';
+                var gh = info.github != null ? `
+                    <a href="${info.github}" target="_blank">
+                        <div class="social-logo gh-logo"></div>
+                    </a>` : '';
+                document.write(`
+                    <img class="about-img" src="${info.github}.png" class="img-fluid" />
+                    <h2 class="about-name">${intro.name}</h2>
+                    <h3 class="about-study">${getStudyOfStudent(info)}</h3>
+                    <div class="about-intro">
+                        <p>
+                            ${intro.intro}
+                        </p>
+                    </div>
+                    <center style="margin-top: 1em;">
+                        ${em}
+                        ${li}
+                        ${gh}
+                    </center>
+                    <br><br>
+                `);
+                document.write(`</div>`);
+            });
+        </script>
     </div>
-</body> 
+</body>

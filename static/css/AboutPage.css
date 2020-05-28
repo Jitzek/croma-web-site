@@ -1,12 +1,94 @@
-h1{
-    color: #f96d00;
-    font-size: 3em !important;
+h1 {
+  color: #f96d00;
+  font-size: 3em !important;
 }
-p{
-    color: white;
-    font-size: 1.2em;
-    margin-bottom: 3vw !important;
+h2 {
+  color: #f96d00;
+  font-size: 2em !important;
 }
-.container{
-    margin-top: 5vw;
+h3 {
+  color: #0095f9;
+  font-size: 1.5em !important;
+}
+p {
+  color: white;
+  font-size: 1.2em;
+  margin-bottom: 3vw !important;
+}
+.container {
+  margin-top: 5vw;
+}
+.about-img {
+  width: 80px;
+  height: auto;
+  position: relative;
+  float: left;
+  margin-right: 1em;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+.about-name {
+    text-shadow: 0 0 15px #f96c0051;
+}
+.about-study {
+    text-shadow: 0 0 15px #0095f951;
+}
+.about-intro {
+    position: relative;
+    margin-top: 1.5em;
+}
+
+/**
+*   Taken from ContactPage.css
+*   TODO: Integrate both stylings into one file
+*/
+#social-icon {
+  color: whitesmoke;
+  opacity: 0.85;
+  font-size: 40px;
+}
+
+#social-icon:hover {
+  opacity: 1;
+}
+
+.social-logo {
+  display: inline;
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 1.2em;
+  opacity: 0.9;
+  transition: background-color 0.5s, padding 0.2s;
+}
+.social-logo:hover {
+  opacity: 1;
+  padding: 1.5em;
+}
+.em-logo {
+  -webkit-mask: url(../imgs/contact/envelopes.svg) no-repeat center;
+  mask: url(../imgs/contact/envelopes.svg) no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+}
+
+.gh-logo {
+  -webkit-mask: url(../imgs/contact/github.svg) no-repeat center;
+  mask: url(../imgs/contact/github.svg) no-repeat center;
+}
+
+.li-logo {
+  -webkit-mask: url(../imgs/contact/linkedin.svg) no-repeat center;
+  mask: url(../imgs/contact/linkedin.svg) no-repeat center;
+}
+
+/**
+*   Media Rules
+*/
+@media screen and (max-width: 900px) {
+  h2{
+      font-size: 1.5em !important;
+  }
+  h3{
+      font-size: 1em !important;
+  }
 }
