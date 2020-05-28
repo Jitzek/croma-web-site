@@ -95,8 +95,6 @@ textarea {
 
 .pfp {
   width: 60px;
-  max-height: 60px;
-  width: auto;
   height: auto;
   transition: width 0.45s;
 }
