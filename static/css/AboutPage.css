@@ -18,6 +18,21 @@ p {
 .container {
   margin-top: 5vw;
 }
+.intro {
+  /*background-color: #222831;*/
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+}
+.intro-header {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  height: 4.76em;
+  /*background-color: #222831;*/
+}
 .about-img {
   width: 80px;
   height: auto;
@@ -27,14 +42,30 @@ p {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 .about-name {
-    text-shadow: 0 0 15px #f96c0051;
+  position: relative;
+  float: left;
+  text-shadow: 0 0 15px #f96c0051;
 }
 .about-study {
-    text-shadow: 0 0 15px #0095f951;
+  position: relative;
+  float: left;
+  text-shadow: 0 0 15px #0095f951;
 }
 .about-intro {
-    position: relative;
-    margin-top: 1.5em;
+  position: relative;
+  margin-top: 1.5em;
+}
+.intro-container {
+  max-height: 4.76em;
+  transition: all 0.5s ease-in;
+  overflow: hidden;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.about-overlay {
+  max-height: 4.76em;
+  transition: all 0.5s ease-in;
+  overflow: hidden;
 }
 
 /**
@@ -81,14 +112,40 @@ p {
   mask: url(../imgs/contact/linkedin.svg) no-repeat center;
 }
 
+.about-expander {
+  float: right;
+  background-color: #f96d00;
+  margin-top: 1.2em;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 1.0em;
+  opacity: 0.9;
+  transition: all 0.25s;
+  -webkit-mask: url(../imgs/about/arrow.svg) no-repeat center;
+  mask: url(../imgs/about/arrow.svg) no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  transform: rotate(90deg);
+}
+
 /**
 *   Media Rules
 */
 @media screen and (max-width: 900px) {
-  h2{
-      font-size: 1.5em !important;
+  h2 {
+    font-size: 1.5em !important;
   }
-  h3{
-      font-size: 1em !important;
+  h3 {
+    font-size: 1em !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .about-name {
+    float: none;
+    display: flex;
+  }
+  .about-study {
+    display: none;
   }
 }

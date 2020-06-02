@@ -8,6 +8,7 @@
     <title>About</title>
     <link rel="stylesheet" href="./static/css/AboutPage.css">
     <script src="./static/js/contactinfo.js"></script>
+    <script src="./static/js/about.js"></script>
 </head>
 
 <body onload="decode_init()">
@@ -39,11 +40,18 @@
                         As one of the main developers working on this site I have taken the opportunity to integrate a good amount of JavaScript into this website.<br>
                         I'm trying to use this opportunity to learn more about automation and styling (mainly animations) using JavaScript.
                     `
+                },
+                {
+                    name: "Jan Vlasman",
+                    intro: `
+                        The only reason I'm here is because my background is nice to look at.
+                    `
                 }
             ];
+            let i = 0;
             intro_arr.forEach(intro => {
-                document.write(`<div class="introduction">`);
                 var info = getInfoByName(intro.name);
+                var background = info.background != null ? info.background : '#222831';
                 var em = info.email != null ? `
                     <a href="mailto:${info.email}">
                         <div class="social-logo em-logo"></div>
@@ -54,25 +62,35 @@
                     </a>` : '';
                 var gh = info.github != null ? `
                     <a href="${info.github}" target="_blank">
-                        <div class="social-logo gh-logo"></div>
+                        <div class="
+                        social-logo gh-logo"></div>
                     </a>` : '';
+                document.write(`<div id="introduction-${i}"  class="intro" style="background: ${background};">
+                                    <div class="about-overlay" style="background: #22283181;">`);
                 document.write(`
                     <img class="about-img" src="${info.github}.png" class="img-fluid" />
-                    <h2 class="about-name">${intro.name}</h2>
-                    <h3 class="about-study">${getStudyOfStudent(info)}</h3>
-                    <div class="about-intro">
-                        <p>
-                            ${intro.intro}
-                        </p>
+                    <div class="intro-header" style="background: ${background};">
+                        <div class="about-expander" onclick="expanderOnClick(${i})"></div>
+                        <h2 class="about-name">${intro.name}</h2><br><div style="padding-bottom: 1.4em;"></div>
+                        <h3 class="about-study">${getStudyOfStudent(info)}</h3>
+                    </div><br>
+                    <div class="intro-container">
+                        <div class="about-intro">
+                            <p>
+                                ${intro.intro}
+                            </p>
+                        </div>
+                        <center style="margin-top: 1em; padding-bottom: 1em;">
+                            ${em}
+                            ${li}
+                            ${gh}
+                        </center>
                     </div>
-                    <center style="margin-top: 1em;">
-                        ${em}
-                        ${li}
-                        ${gh}
-                    </center>
+                    
                     <br><br>
                 `);
-                document.write(`</div><hr>`);
+                document.write(`</div></div><br><div style="margin-bottom: 1em;"></div>`);
+                i++;
             });
         </script>
     </div>
