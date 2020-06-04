@@ -57,6 +57,29 @@ p {
     animation: reveal 5s forwards 0s;
 }
 
+.rocket-img {
+  float: right;
+  bottom: -1em;
+  right: -2.5em;
+  position: fixed;
+  z-index: -1;
+}
+
+/**
+*   Media Rules
+*/
+@media screen and (max-width: 1200px) {
+  .rocket-img {
+    bottom: -10em;
+    right: -10em;
+  }
+}
+@media screen and (max-width: 980px), (max-height: 800px) {
+  .rocket-img {
+    opacity: 0;
+  }
+}
+
 /**
 *   Keyframes
 */
