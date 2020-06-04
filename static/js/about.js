@@ -42,8 +42,8 @@ async function expanderOnClick(id) {
 
     // reintroduce introduction
     // Using % cancels animation
-    introduction.style.maxHeight = '100em';
-    overlay.style.maxHeight = '100em';
+    introduction.style.maxHeight = '80em';
+    overlay.style.maxHeight = '80em';
 
     introduction.style.transition = `all 0.${ANIMATIONTIME}s ease-in`;
     overlay.style.transition = `all 0.${ANIMATIONTIME}a ease-in`;
