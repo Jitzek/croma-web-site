@@ -39,17 +39,14 @@ p {
   position: relative;
   float: left;
   margin-right: 1em;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 .about-name {
   position: relative;
   float: left;
-  text-shadow: 0 0 15px #f96c0051;
 }
 .about-study {
   position: relative;
   float: left;
-  text-shadow: 0 0 15px #0095f951;
 }
 .about-intro {
   position: relative;
