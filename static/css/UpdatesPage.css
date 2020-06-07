@@ -34,7 +34,7 @@ input[type="checkbox"] {
   display: none;
 }
 
-.media-container {
+/*.media-container {
   display: flex;
 }
 
@@ -43,6 +43,44 @@ input[type="checkbox"] {
   transition: transform 0.25s ease;
   cursor: zoom-in;
   transform: scale(0.7);
+}*/
+
+.media-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.media-container .media {
+  transition: all 0.5s;
+  align-items: center;
+}
+
+.media-container .media-min {
+  position: relative;
+  cursor: zoom-in;
+  width: 100%;
+  height: auto;
+  min-height: 10em;
+  min-width: 10em;
+  max-width: 10em;
+  max-height: 10em;
+  padding: 1em;
+  left: 0;
+  z-index: initial;
+}
+.media-container .media-min:hover {
+  background-color: #f96d0011;
+  box-shadow: 0 0 15px #f96d0011;
+}
+.media-container .media-max {
+  position: absolute;
+  cursor: zoom-out;
+  max-height: 100vh;
+  width: 100vw;
+  padding: 1em;
+  height: auto;
+  left: 0;
+  z-index: 1;
 }
 
 input[type="checkbox"]:checked ~ label > .media {

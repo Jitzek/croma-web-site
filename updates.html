@@ -8,6 +8,7 @@
     </script>
     <title>Updates</title>
     <link rel="stylesheet" href="./static/css/UpdatesPage.css">
+    <script src="./static/js/updates.js"></script>
 </head>
 
 <body onload="decode_init()">
@@ -216,12 +217,22 @@
                 // MEDIA
                 // (More than one image)
                 if (update.images && update.images.length > 1) {
-                    document.write(`
+
+                    /*document.write(`
                         <div class="media-container">
                             <div class="row">
-                    `);
+                    `);*/
+                    document.write('<div class="media-container">');
                     update.images.forEach(image => {
                         document.write(`
+                            <div id="img-${id}" onclick="mediaOnClick('img-${id}')">
+                                <div class="media media-min">
+                                    <img src="${image.url}" class="img-fluid"
+                                        alt="${image.alt}" />
+                                </div>
+                            </div>
+                        `);
+                        /*document.write(`
                             <div class="column">
                                 <input type="checkbox" id="${id}">
                                 <label for="${id}">
@@ -229,10 +240,10 @@
                                         alt="${image.alt}" />
                                 </label>
                             </div>
-                        `)
+                        `)*/
                         id++;
                     });
-                    document.write(`</div></div>`);
+                    document.write('</div>');
                 }
                 // MEDIA
                 // (Only one image)
