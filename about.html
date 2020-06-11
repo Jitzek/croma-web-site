@@ -17,10 +17,38 @@
     </script>
     <div class="container">
         <hr>
-        <h1 class="decode" limit="5" speed="10" delay="0">Project</h1>
-        <p>The NSA has set up a number of scientific experiments that they want to be carried out by the different teams
-            of 2nd year students of the Mechanical Engineering, Electrical Engineering and HBO-ICT program.</p>
-        <br>
+        <div class="about-project">
+            <div id="video-container">
+                <video autoplay muted id="cromaPosterInit" class="poster">
+                    <source id="cromaPosterSource" src="./static/imgs/about/Croma.mp4" type="video/mp4">
+                    <img src="./static/imgs/about/poster_placeholder.png" class="img-fluid">
+                </video>
+                <video autoplay muted loop id="cromaPosterLoop" class="poster">
+                    <source id="cromaPosterSource" src="./static/imgs/about/Loop.mp4" type="video/mp4">
+                    <img src="./static/imgs/about/poster_placeholder.png" class="img-fluid">
+                </video>
+            </div>
+            <script type='text/javascript'>
+                var container = document.getElementById('video-container');
+                var init = document.getElementById('cromaPosterInit');
+                var loop = document.getElementById('cromaPosterLoop');
+                init.addEventListener('ended', myHandler, false);
+
+                function myHandler(e) {
+                    if (!e) {
+                        e = window.event;
+                    }
+                    init.style.display = 'none';
+                    loop.style.display = 'inline';
+                }
+
+            </script>
+            <h1 class="decode" limit="5" speed="10" delay="0">Project</h1>
+            <p>The NSA has set up a number of scientific experiments that they want to be carried out by the different
+                teams
+                of 2nd year students of the Mechanical Engineering, Electrical Engineering and HBO-ICT program.</p>
+            <br>
+        </div>
         <hr>
         <h1 class="decode" limit="5" speed="10" delay="0">Team</h1>
         <p>Our team exists of students from various engineering majors working together on a robot. Our work depends on
@@ -49,6 +77,14 @@
                         <br>
                         As one of the main developers working on this site I have taken the opportunity to integrate a good amount of JavaScript into this website.<br>
                         I'm trying to use this opportunity to learn more about automation and styling (mainly animations) using JavaScript.
+                    `
+                },
+                {
+                    name: "Fredrik-Otto Lautenbag",
+                    intro: `
+                        Mijn naam is Fredrik-Otto Lautenbag. Momenteel zit ik in het tweede jaar van de opleiding elektrotechniek aan NHL Stenden.<br>
+                        Naast school ben ik veel bezig met elektronica en embedded systemen. Dit doe ik zowel als hobby en werk.<br>
+                        Daarnaast houd ik mij graag bezig met auto en motorsport. Het modelleren en printen van 3D modellen doe ik graag. 
                     `
                 },
                 {

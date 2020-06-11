@@ -65,6 +65,30 @@ p {
   overflow: hidden;
 }
 
+.about-project {
+  display: flow-root;
+}
+
+.poster {
+  border: solid white 0.2em;
+}
+
+#video-container {
+  display: flex;
+  width: 20em;
+  margin: 1em;
+  height: auto;
+  float: left;
+}
+
+#cromaPosterInit {
+  width: 100%;
+}
+#cromaPosterLoop {
+  display: none;
+  width: 100%;
+}
+
 /**
 *   Taken from ContactPage.css
 *   TODO: Integrate both stylings into one file
@@ -144,5 +168,21 @@ p {
   }
   .about-study {
     display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about-name {
+    float: none;
+    display: flex;
+  }
+  .about-study {
+    display: none;
+  }
+  #video-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin: 0;
   }
 }
