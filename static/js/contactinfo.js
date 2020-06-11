@@ -28,7 +28,7 @@ const CONTACTINFO = [
   },
   {
     type: "student",
-    name: "Gerlof Bolding",
+    name: "Gerolf Bolding",
     email: null,
     linkedin: null,
     github: null,
