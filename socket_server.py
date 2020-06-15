@@ -84,9 +84,6 @@ async def on_message(websocket, path):
 
             if msg['origin'] == BROADCASTER:
                 process.start() if not process.hasStarted else process.keepAlive()
-
-            if 'data' not in msg:
-                continue
                 
             # Forward JSON to all Clients
             reply = json.dumps(msg)
