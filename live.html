@@ -7,15 +7,11 @@
     </script>
     <title>Metingen</title>
     <link rel="stylesheet" href="./static/css/Live.css">
-    <script src="./static/js/socket/metingen.js"></script>
 </head>
 
 <body>
     <script>
         navbar_include('Live');
-    </script>
-    <script>
-        document.onload = connect_socket(`ws://${SOCKET_IP}:${SOCKET_PORT}`);
     </script>
     <!-- TODO: Determine what data to display -->
     <div class="main">
@@ -25,7 +21,7 @@
                     <img src="./static/imgs/metingen/icons/gps.png">
                 </div>
                 <div>
-                    <span class="value">(10, 50, 1337)</span><br>
+                    <span class="value">(0, 0, 0)</span><br>
                     <span>GPS</span>
                 </div>
             </div>
@@ -43,17 +39,17 @@
                     <img src="./static/imgs/metingen/icons/fuel.png">
                 </div>
                 <div>
-                    <span class="value">10</span>&nbsp;<span>L</span><br>
+                    <span class="value">0</span><br>
                     <span>brandstof</span>
                 </div>
             </div>
             <div class="info">
                 <div>
-                    <img src="./static/imgs/metingen/icons/temp.png">
+                    <img src="./static/imgs/metingen/icons/task.png">
                 </div>
                 <div>
-                    <span class="value">20</span>&nbsp;<span>°C</span><br>
-                    <span>Temperatuur</span>
+                    <span id="task_value" class="value">No Task</span><br>
+                    <span>Current Task</span>
                 </div>
             </div>
         </div>
@@ -62,12 +58,14 @@
                 stream_include();
             </script>
         </div>
-        <div class="left">Graph</div>
-        <div class="right">Graph</div>
-        <div class="bleft">Graph</div>
-        <div class="bright">Graph</div>
+    </div>
+    <div id="task-data">
     </div>
     <script src="./static/js/live.js"></script>
+    <script src="./static/js/socket/metingen.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", connect_socket(`ws://${SOCKET_IP}:${SOCKET_PORT}`));
+    </script>
 </body>
 
 </html>
