@@ -54,7 +54,7 @@ function connect() {
   if (document.getElementById('webotsProgress')) {
     document.getElementById('webotsProgress').style.display = "none";
   }
-  connect_socket(`ws://${SOCKET_IP}:${SOCKET_PORT}`);
+  //connect_socket(`ws://${SOCKET_IP}:${SOCKET_PORT}`);
 }
 
 function onerror() {
@@ -84,7 +84,7 @@ function disconnect() {
   //connectButton.onclick = connect;
   ipInput.disabled = false;
   portInput.disabled = false;
-  disconnect_socket();
+  //disconnect_socket();
 }
 
 window.addEventListener('load', init, false);

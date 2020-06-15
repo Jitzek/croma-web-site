@@ -4,7 +4,6 @@ function connect_socket(conn) {
     socket = new WebSocket(conn);
 
     socket.onerror = function (event) {
-        //console.log(event);
     };
     
     // Connection opened
@@ -16,7 +15,7 @@ function connect_socket(conn) {
     socket.addEventListener('message', function (event) {
         json = JSON.parse(event.data);
         if (!json.origin) return;
-        //console.log(`Message from ${json.origin}`);
+        console.log(`Message from ${json.origin}`);
     
         if (json.data) {
             // Do something with data

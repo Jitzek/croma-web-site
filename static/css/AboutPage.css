@@ -73,6 +73,18 @@ p {
   border: solid white 0.2em;
 }
 
+td{
+  color: white;
+}
+
+.croma {
+  color: #4AA1DF;
+  font-size: 2em;
+  width: 1em;
+  text-align: center;
+  font-weight: bold;
+}
+
 #video-container {
   display: flex;
   width: 20em;

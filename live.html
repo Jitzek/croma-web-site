@@ -14,6 +14,9 @@
     <script>
         navbar_include('Live');
     </script>
+    <script>
+        document.onload = connect_socket(`ws://${SOCKET_IP}:${SOCKET_PORT}`);
+    </script>
     <!-- TODO: Determine what data to display -->
     <div class="main">
         <div class="header">
