@@ -1,8 +1,10 @@
 const ORIGIN = 'client';
+const BROADCASTER = 'webots';
 
 const COLOR_ACTIVE = '#f96d00';
 const COLOR_INACTIVE = '#505050';
 
+const RECOGNIZE_CARD_SYMBOL = "Finding Card Symbol";
 const RECOGNIZE_TEMPERATURE = "Recognize Temperature";
 const MINERAL_ANALYSIS = "Mineral Analysis";
 
@@ -25,6 +27,16 @@ const TASKS =
                 {
                     name: "Weight",
                     id: "weight"
+                }
+            ]
+        },
+        {
+            task: RECOGNIZE_CARD_SYMBOL,
+            class: "Recognize-Card-Symbol",
+            topics: [
+                {
+                    name: "Card Symbol",
+                    id: "card-symbol"
                 }
             ]
         }
@@ -88,7 +100,7 @@ function connect_socket(conn) {
     // Listen for messages
     socket.addEventListener('message', function (event) {
         json = JSON.parse(event.data);
-        if (!json.origin || json.origin == ORIGIN) return;
+        if (!json.origin || json.origin != BROADCASTER) return;
         //console.log(`Message from ${json.origin}`);
 
         if (current_task != json.task) {
@@ -154,7 +166,7 @@ const ANIMATION_TIME = 500
 async function updateHTML(task, json_data, reset = false) {
     let div = false
     if (json_data.topic.length > 0) {
-        div = task_data_div.querySelector(`#${json_data.topic}`);
+        div = task_data_div.querySelector(`#${json_data.topic.replace(/\s+/g, '-')}`);
     }
     switch (task.task) {
         case RECOGNIZE_TEMPERATURE:
@@ -162,6 +174,9 @@ async function updateHTML(task, json_data, reset = false) {
             break;
         case MINERAL_ANALYSIS:
             updateMineralAnalysis(div, json_data);
+            break;
+        case RECOGNIZE_CARD_SYMBOL:
+            updateSymbolRecognition(div, json_data);
             break;
     }
     if (div) {
@@ -205,6 +220,27 @@ function updateMineralAnalysis(div, json_data) {
 
             topic_container.innerHTML = `<h1>${json_data.topic}</h1>`;
             value_container.innerHTML = `<p>${json_data.value} KG</p>`;
+            colored_line.style.background = COLOR_ACTIVE
+            colored_line.style.boxShadow = `0 0 15px ${COLOR_ACTIVE}`;
+            decode(value_container.querySelector('p'), 5, 10);
+            break;
+    }
+}
+
+function updateSymbolRecognition(div, json_data) {
+    switch (json_data.topic) {
+        case "Card Symbol":
+            let topic_container = div.querySelector('.topic-container');
+            let value_container = div.querySelector('.value-container');
+            let colored_line = div.querySelector('.top-line');
+            colored_line.style.background = COLOR_ACTIVE;
+
+            topic_container.innerHTML = `<h1>${json_data.topic}</h1>`;
+            let symbol = `./static/imgs/live/card-symbols/${json_data.value}.png`;
+            value_container.innerHTML = `<div style="display: flex; justify-content: center;">
+                                            <img style="width: 3.5em; height: auto;position:absolute;margin-top:-0.4em" src="${symbol.toLowerCase()}" class="img-fluid">
+                                            <span style="font-size: 1.5em; position:absolute;letter-spacing: 0.1em; text-shadow: 0 0 3px black;">${json_data.value}</span>
+                                        </div>`;
             colored_line.style.background = COLOR_ACTIVE
             colored_line.style.boxShadow = `0 0 15px ${COLOR_ACTIVE}`;
             decode(value_container.querySelector('p'), 5, 10);
