@@ -13,9 +13,10 @@
     <script>
         navbar_include('Live');
     </script>
-    <!-- TODO: Determine what data to display -->
+
     <div class="main">
         <div class="header">
+            <div id="socket-connected"></div>
             <div class="info">
                 <div>
                     <img src="./static/imgs/metingen/icons/gps.png">
@@ -49,7 +50,7 @@
                 </div>
                 <div>
                     <span id="task_value" class="value">No Task</span><br>
-                    <span>Current Task</span>
+                    <span id="stage_value">NaN</span>
                 </div>
             </div>
         </div>

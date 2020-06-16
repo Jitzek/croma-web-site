@@ -2,6 +2,14 @@
   height: 0px;
   max-width: 100%;
 }
+
+#socket-connected {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 1em;
+}
+
 .main {
   display: grid;
   gap: 10px;
@@ -84,7 +92,6 @@ span:not(.value) {
 }
 
 .top-line {
-  background: #505050;
   height: 1em;
   width: 100%;
   transition: all 0.5s ease-in-out;

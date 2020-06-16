@@ -1,6 +1,10 @@
 const ORIGIN = 'client';
 
-const RECOGNIZE_TEMPERATURE = "Recognize Temperature"
+const COLOR_ACTIVE = '#f96d00';
+const COLOR_INACTIVE = '#505050';
+
+const RECOGNIZE_TEMPERATURE = "Recognize Temperature";
+const MINERAL_ANALYSIS = "Mineral Analysis";
 
 const TASKS =
     [
@@ -10,7 +14,17 @@ const TASKS =
             topics: [
                 {
                     name: "Temperature",
-                    id: "temperature",
+                    id: "temperature"
+                }
+            ]
+        },
+        {
+            task: MINERAL_ANALYSIS,
+            class: "Mineral-Analysis",
+            topics: [
+                {
+                    name: "Weight",
+                    id: "weight"
                 }
             ]
         }
@@ -30,10 +44,14 @@ let task_data_div = null
 
 var socket = null;
 
+const SOCKET_CONNECTED_BAR = document.getElementById('socket-connected');
 const CURRENT_TASK_ELEM = document.getElementById('task_value');
+const CURRENT_STAGE_ELEM = document.getElementById('stage_value');
 let current_task = CURRENT_TASK_ELEM.innerText;
+let current_stage = CURRENT_STAGE_ELEM.innerText;
 
 function connect_socket(conn) {
+    SOCKET_CONNECTED_BAR.style.background = COLOR_INACTIVE;
 
     task_data_div = document.getElementById('task-data');
 
@@ -41,9 +59,10 @@ function connect_socket(conn) {
         TASK.topics.forEach(topic => {
             task_data_div.innerHTML += `
                 <div id="${topic.id}" class="data ${TASK.class}">
-                    <div class="top-line">
+                    <div class="top-line" style="background: ${COLOR_INACTIVE};">
                     </div>
                     <div class="topic-container">
+                        <h1>${topic.name}</h1>
                     </div><br><br>
                     <div class="value-container">
                     </div>
@@ -57,11 +76,13 @@ function connect_socket(conn) {
     socket = new WebSocket(conn);
 
     socket.onerror = function (event) {
+        SOCKET_CONNECTED_BAR.style.background = COLOR_INACTIVE;
     };
 
     // Connection opened
     socket.addEventListener('open', function (event) {
         socket.send(JSON.stringify({ origin: 'client' }));
+        SOCKET_CONNECTED_BAR.style.background = COLOR_ACTIVE;
     });
 
     // Listen for messages
@@ -74,6 +95,12 @@ function connect_socket(conn) {
             current_task = json.task
             CURRENT_TASK_ELEM.innerHTML = current_task;
             decode(CURRENT_TASK_ELEM, 2, 5);
+            reset();
+        }
+        if (current_stage != json.stage) {
+            current_stage = json.stage
+            CURRENT_STAGE_ELEM.innerHTML = current_stage;
+            decode(CURRENT_STAGE_ELEM, 2, 5);
         }
 
         let task = getTaskFromName(json.task);
@@ -83,6 +110,26 @@ function connect_socket(conn) {
 
     socket.addEventListener('close', function (event) {
         console.log('Connection Closed ', event.data);
+        SOCKET_CONNECTED_BAR.style.background = COLOR_INACTIVE;
+    });
+}
+
+function reset() {
+    task_data_div.innerHTML = '';
+    TASKS.forEach(TASK => {
+        TASK.topics.forEach(topic => {
+            task_data_div.innerHTML += `
+                <div id="${topic.id}" class="data ${TASK.class}">
+                    <div class="top-line" style="background: ${COLOR_INACTIVE};">
+                    </div>
+                    <div class="topic-container">
+                        <h1>${topic.name}</h1>
+                    </div><br><br>
+                    <div class="value-container">
+                    </div>
+                </div>
+            `;
+        });
     });
 }
 
@@ -105,16 +152,23 @@ function sleep(ms) {
 const ANIMATION_TIME = 500
 
 async function updateHTML(task, json_data, reset = false) {
-    let div = task_data_div.querySelector(`#${json_data.topic}`)
-
+    let div = false
+    if (json_data.topic.length > 0) {
+        div = task_data_div.querySelector(`#${json_data.topic}`);
+    }
     switch (task.task) {
         case RECOGNIZE_TEMPERATURE:
-            updateRecognizeTemperature(div, json_data)
-            break
+            updateRecognizeTemperature(div, json_data);
+            break;
+        case MINERAL_ANALYSIS:
+            updateMineralAnalysis(div, json_data);
+            break;
     }
-    await sleep(ANIMATION_TIME)
     if (div) {
-        arrangeElement(div)
+        await sleep(ANIMATION_TIME)
+        if (div) {
+            arrangeElement(div)
+        }
     }
 }
 
@@ -136,6 +190,23 @@ function updateRecognizeTemperature(div, json_data) {
             value_container.innerHTML = `<p>${json_data.value}</p>`;
             colored_line.style.background = color
             colored_line.style.boxShadow = `0 0 15px ${color}`;
+            decode(value_container.querySelector('p'), 5, 10);
+            break;
+    }
+}
+
+function updateMineralAnalysis(div, json_data) {
+    switch (json_data.topic) {
+        case "Weight":
+            let topic_container = div.querySelector('.topic-container');
+            let value_container = div.querySelector('.value-container');
+            let colored_line = div.querySelector('.top-line');
+            colored_line.style.background = COLOR_ACTIVE;
+
+            topic_container.innerHTML = `<h1>${json_data.topic}</h1>`;
+            value_container.innerHTML = `<p>${json_data.value} KG</p>`;
+            colored_line.style.background = COLOR_ACTIVE
+            colored_line.style.boxShadow = `0 0 15px ${COLOR_ACTIVE}`;
             decode(value_container.querySelector('p'), 5, 10);
             break;
     }
