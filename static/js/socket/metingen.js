@@ -5,7 +5,7 @@ const COLOR_ACTIVE = '#f96d00';
 const COLOR_INACTIVE = '#505050';
 
 const RECOGNIZE_CARD_SYMBOL = "Finding Card Symbol";
-const RECOGNIZE_TEMPERATURE = "Recognize Temperature";
+const RECOGNIZE_TEMPERATURE = "Measuring Temperature of Water Source";
 const MINERAL_ANALYSIS = "Mineral Analysis";
 
 const TASKS =
