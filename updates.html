@@ -300,7 +300,7 @@
                     document.write('<div class="media-container">');
                     update.videos.forEach(video => {
                         document.write(`
-                            <video preload="none" style="object-fit: contain; max-width: 40%; margin: 1em; height: auto;" controls>
+                            <video preload="none" class="video-multi" controls>
                                 <source id="cromaPosterSource" src="${video.url}" type="video/${video.type}">
                                 <span style="color: white;">${video.alt}</span>
                             </video>

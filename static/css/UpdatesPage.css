@@ -102,11 +102,21 @@ input[type="checkbox"]:checked ~ label > .media {
   cursor: zoom-out;
 }
 
+.video-multi {
+  object-fit: contain; 
+  max-width: 40%; 
+  margin: 1em; 
+  height: auto;
+}
+
 /*
    * Responsiveness
   */
 @media only screen and (max-width: 800px) {
   .column {
     width: 50%;
+  }
+  .video-multi {
+    max-width: 100%;
   }
 }
