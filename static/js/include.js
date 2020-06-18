@@ -15,6 +15,7 @@ function global_include() {
         <script src="./static/js/bootstrap/bootstrap.min.js"></script>
         <script src="./static/js/socket/ping.js"></script>
         <script src="./static/js/decoder.js"></script>
+        <script src="./static/js/global.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function (event) {
                 var init = document.getElementsByClassName("live-tab")[0].innerHTML;
