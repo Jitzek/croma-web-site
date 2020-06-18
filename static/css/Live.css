@@ -75,7 +75,7 @@ span:not(.value) {
   /*justify-content: center;
   align-items: center;*/
   margin: 2em;
-  width: 30%;
+  width: 27%;
   height: 10em;
   background-color: rgba(0, 0, 0, 0.445);
   text-align: center;
@@ -112,6 +112,9 @@ span:not(.value) {
   }
   .info {
     margin: 20px;
+  }
+  .data {
+    width: 100%;
   }
 }
 @media screen and (max-width: 600px),

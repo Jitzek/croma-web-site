@@ -20,12 +20,12 @@
         <div class="about-project">
             <div id="video-container">
                 <video autoplay muted id="cromaPosterInit" class="poster">
-                    <source id="cromaPosterSource" src="./static/imgs/about/Croma.mp4" type="video/mp4">
-                    <img src="./static/imgs/about/poster_placeholder.png" class="img-fluid">
+                    <source id="cromaPosterSource" src="./static/media/about/Croma.mp4" type="video/mp4">
+                    <img src="./static/media/about/poster_placeholder.png" class="img-fluid">
                 </video>
-                <video autoplay muted loop id="cromaPosterLoop" class="poster">
-                    <source id="cromaPosterSource" src="./static/imgs/about/Loop.mp4" type="video/mp4">
-                    <img src="./static/imgs/about/poster_placeholder.png" class="img-fluid">
+                <video preload="auto" autoplay muted loop id="cromaPosterLoop" class="poster">
+                    <source id="cromaPosterSource" src="./static/media/about/Loop.mp4" type="video/mp4">
+                    <img src="./static/media/about/poster_placeholder.png" class="img-fluid">
                 </video>
             </div>
             <script type='text/javascript'>
@@ -80,10 +80,10 @@
         <h1 class="decode" limit="5" speed="10" delay="0">Team</h1>
         <p>Our team exists of students from various engineering majors working together on a robot. Our work depends on
             eachother and enriches the final product.</p>
-        <!--<video controls id="cromaPosterInit" class="poster">
-            <source id="cromaPosterSource" src="./static/imgs/about/pitch.mp4" type="video/mp4">
+        <video controls id="pitch">
+            <source id="cromaPosterSource" src="./static/media/about/Pitch.mp4" type="video/mp4">
             <span style="color: white;">MP4 not supported by browser</span>
-        </video>-->
+        </video>
         <br><br>
         <script>
             const intro_arr = [
@@ -191,7 +191,7 @@
                 var pfp = info.picture;
                 // If person does not have a defined Profile Picture try the person's github else use default
                 // Github gives easier access to user's pfp than linkedin
-                if (pfp == null) pfp = info.github != null ? info.github + '.png' : './static/imgs/contact/default.png';
+                if (pfp == null) pfp = info.github != null ? info.github + '.png' : './static/media/contact/default.png';
 
                 var background = info.background != null ? info.background : '#222831';
                 var em = info.email != null ? `

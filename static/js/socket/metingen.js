@@ -236,7 +236,7 @@ function updateSymbolRecognition(div, json_data) {
             colored_line.style.background = COLOR_ACTIVE;
 
             topic_container.innerHTML = `<h1>${json_data.topic}</h1>`;
-            let symbol = `./static/imgs/live/card-symbols/${json_data.value}.png`;
+            let symbol = `./static/media/live/card-symbols/${json_data.value}.png`;
             value_container.innerHTML = `<div style="display: flex; justify-content: center;">
                                             <img style="width: 3.5em; height: auto;position:absolute;margin-top:-0.4em" src="${symbol.toLowerCase()}" class="img-fluid">
                                             <span style="font-size: 1.5em; position:absolute;letter-spacing: 0.1em; text-shadow: 0 0 3px black;">${json_data.value}</span>

@@ -133,20 +133,20 @@ textarea {
   padding: 1.5em;
 }
 .em-logo {
-  -webkit-mask: url(../imgs/contact/envelopes.svg) no-repeat center;
-  mask: url(../imgs/contact/envelopes.svg) no-repeat center;
+  -webkit-mask: url(../media/contact/envelopes.svg) no-repeat center;
+  mask: url(../media/contact/envelopes.svg) no-repeat center;
   mask-size: contain;
   -webkit-mask-size: contain;
 }
 
 .gh-logo {
-  -webkit-mask: url(../imgs/contact/github.svg) no-repeat center;
-  mask: url(../imgs/contact/github.svg) no-repeat center;
+  -webkit-mask: url(../media/contact/github.svg) no-repeat center;
+  mask: url(../media/contact/github.svg) no-repeat center;
 }
 
 .li-logo {
-  -webkit-mask: url(../imgs/contact/linkedin.svg) no-repeat center;
-  mask: url(../imgs/contact/linkedin.svg) no-repeat center;
+  -webkit-mask: url(../media/contact/linkedin.svg) no-repeat center;
+  mask: url(../media/contact/linkedin.svg) no-repeat center;
 }
 
 /**

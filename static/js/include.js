@@ -49,7 +49,7 @@ function navbar_include(page = "") {
         <link rel="stylesheet" href="./static/css/NavBar.css">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="./home.html">
-                <img id="logo" src="./static/imgs/officieel-logo.png" alt="Croma logo">
+                <img id="logo" src="./static/media/officieel-logo.png" alt="Croma logo">
             </a>
             <button class="navbar-toggler btn-hamburger" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

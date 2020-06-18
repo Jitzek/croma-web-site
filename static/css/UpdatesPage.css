@@ -82,6 +82,16 @@ input[type="checkbox"] {
   left: 0;
   z-index: 1;
 }
+.media-container .media-mid {
+  position: absolute;
+  cursor: zoom-out;
+  max-height: 50vh;
+  width: 50vw;
+  padding: 1em;
+  height: auto;
+  left: 0;
+  z-index: 1;
+}
 
 input[type="checkbox"]:checked ~ label > .media {
   position: absolute;

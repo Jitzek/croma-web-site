@@ -101,6 +101,10 @@ td{
   width: 100%;
 }
 
+#pitch {
+  width: 100%;
+}
+
 /**
 *   Taken from ContactPage.css
 *   TODO: Integrate both stylings into one file
@@ -129,20 +133,20 @@ td{
   padding: 1.5em;
 }
 .em-logo {
-  -webkit-mask: url(../imgs/contact/envelopes.svg) no-repeat center;
-  mask: url(../imgs/contact/envelopes.svg) no-repeat center;
+  -webkit-mask: url(../media/contact/envelopes.svg) no-repeat center;
+  mask: url(../media/contact/envelopes.svg) no-repeat center;
   mask-size: contain;
   -webkit-mask-size: contain;
 }
 
 .gh-logo {
-  -webkit-mask: url(../imgs/contact/github.svg) no-repeat center;
-  mask: url(../imgs/contact/github.svg) no-repeat center;
+  -webkit-mask: url(../media/contact/github.svg) no-repeat center;
+  mask: url(../media/contact/github.svg) no-repeat center;
 }
 
 .li-logo {
-  -webkit-mask: url(../imgs/contact/linkedin.svg) no-repeat center;
-  mask: url(../imgs/contact/linkedin.svg) no-repeat center;
+  -webkit-mask: url(../media/contact/linkedin.svg) no-repeat center;
+  mask: url(../media/contact/linkedin.svg) no-repeat center;
 }
 
 .about-expander {
@@ -154,8 +158,8 @@ td{
   padding: 1.0em;
   opacity: 0.9;
   transition: all 0.25s;
-  -webkit-mask: url(../imgs/about/arrow.svg) no-repeat center;
-  mask: url(../imgs/about/arrow.svg) no-repeat center;
+  -webkit-mask: url(../media/about/arrow.svg) no-repeat center;
+  mask: url(../media/about/arrow.svg) no-repeat center;
   mask-size: contain;
   -webkit-mask-size: contain;
   transform: rotate(90deg);

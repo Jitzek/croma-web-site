@@ -47,7 +47,7 @@
                         var pfp = info.picture;
                         // If person does not have a defined Profile Picture try the person's github else use default
                         // Github gives easier access to user's pfp than linkedin
-                        if (pfp == null) pfp = info.github != null ? info.github + '.png' : './static/imgs/contact/default.png';
+                        if (pfp == null) pfp = info.github != null ? info.github + '.png' : './static/media/contact/default.png';
                         var redirect = info.href != null ? info.href : false;
                         document.write(`
                         <div id="${info.name}" class="col-12 col-md-6 col-lg-3 col-card contact-card") ${redirect ? `onclick="onCardClick('${redirect}')` : ''} "">
