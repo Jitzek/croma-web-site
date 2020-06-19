@@ -204,6 +204,7 @@
                     images: null,
                     videos: [
                         {
+                            thumbnail: './static/media/updates/Robot/thumbnails/Robot_Obstacle_Course.png',
                             url: LFSpath('./static/media/updates/Robot/Robot-obstacle-course.mp4'),
                             alt: '[MP4] Robot Obstacle Course Demo',
                             type: 'mp4'
@@ -227,27 +228,32 @@
                     images: null,
                     videos: [
                         {
-                            url: LFSpath('./static/media/updates/Qualification/Door_Het_Poortje.mp4'),
+                            thumbnail: './static/media/updates/Qualification/thumbnails/Door_Het_Poortje.png',
+                            url: 'https://onedrive.live.com/download?cid=795F7A06B080A6F2&resid=795F7A06B080A6F2%21111292&authkey=AHoreXs6azecgWo',
                             alt: '[MP4] Robot maneuvering through a tight space',
                             type: 'mp4'
                         },
                         {
-                            url: LFSpath('./static/media/updates/Qualification/Mineral_Analysis_Autonomous.mp4'),
+                            thumbnail: './static/media/updates/Qualification/thumbnails/Mineral_Analysis.png',
+                            url: 'https://onedrive.live.com/download?cid=795F7A06B080A6F2&resid=795F7A06B080A6F2%21111293&authkey=ACQkHvjloz2FGf4',
                             alt: '[MP4] Robot autonomously detecting, collecting and depositing mineral stones',
                             type: 'mp4'
                         },
                         {
-                            url: LFSpath('./static/media/updates/Qualification/Moon_landscape.mp4'),
+                            thumbnail: './static/media/updates/Qualification/thumbnails/Moon_Landscape.png',
+                            url: 'https://onedrive.live.com/download?cid=795F7A06B080A6F2&resid=795F7A06B080A6F2%21111295&authkey=AAHiMSN3EYd-RWc',
                             alt: '[MP4] Robot traversing the well optimized moon surface',
                             type: 'mp4'
                         },
                         {
-                            url: LFSpath('./static/media/updates/Qualification/Water_source_analysis.mp4'),
+                            thumbnail: './static/media/updates/Qualification/thumbnails/Water_Source_Analysis.png',
+                            url: 'https://onedrive.live.com/download?cid=795F7A06B080A6F2&resid=795F7A06B080A6F2%21111297&authkey=ADYR4981gT_GAeA',
                             alt: '[MP4] Robot recognizing and measuring the temperature of water sources',
                             type: 'mp4'
                         },
                         {
-                            url: LFSpath('./static/media/updates/Qualification/Kwalificatie_Vision.mp4'),
+                            thumbnail: './static/media/updates/Qualification/thumbnails/Card_Symbols_Recognition.png',
+                            url: 'https://onedrive.live.com/download?cid=795F7A06B080A6F2&resid=795F7A06B080A6F2%21111294&authkey=AFJaEwMF1tPrvDQ',
                             alt: '[MP4] Robot differentiating different card symbols',
                             type: 'mp4'
                         },
@@ -300,8 +306,8 @@
                     document.write('<div class="media-container">');
                     update.videos.forEach(video => {
                         document.write(`
-                            <video preload="none" class="video-multi" controls>
-                                <source id="cromaPosterSource" src="${video.url}" type="video/${video.type}">
+                            <video poster="${video.thumbnail}" preload="none" class="video-multi" controls>
+                                <source src="${video.url}" type="video/${video.type}">
                                 <span style="color: white;">${video.alt}</span>
                             </video>
                         `);
@@ -314,7 +320,7 @@
                 else if (update.videos) {
                     update.videos.forEach(video => {
                         document.write(`
-                            <video preload="none" style="object-fit: contain; max-width: 100%; height: auto;" controls>
+                            <video poster="${video.thumbnail}" preload="none" style="object-fit: contain; max-width: 100%; height: auto;" controls>
                                 <source src="${video.url}" type="video/${video.type}">
                                 ${video.alt}
                             </video>

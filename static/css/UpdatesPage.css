@@ -103,7 +103,7 @@ input[type="checkbox"]:checked ~ label > .media {
 }
 
 .video-multi {
-  object-fit: contain; 
+  object-fit: contain;
   max-width: 40%; 
   margin: 1em; 
   height: auto;
