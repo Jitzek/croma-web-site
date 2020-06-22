@@ -1,2 +1,2 @@
 # croma
-Croma Robot Simulation using WeBots
+Official website for the Croma Robot made in Webots
