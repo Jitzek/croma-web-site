@@ -143,7 +143,7 @@ const CONTACTINFO = [
     foreground: "#16191E",
     background: "url(./static/media/contact/backgrounds/simplistic-mountain-1.jpg)",
     hover: "rgba(0, 0, 0, 0.445)",
-    href: "https://jitzek.github.io/",
+    href: null,
   },
   {
     type: "student",
